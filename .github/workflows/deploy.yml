@@ -4,15 +4,34 @@ on:
     branches:
       - master 
       - main
+
 permissions:
   contents: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+        with:
+          # Required if you use plugins that track git commit dates
+          fetch-depth: 0
+
+      - name: Configure Python
+        uses: actions/setup-python@v5
         with:
           python-version: 3.x
-      - run: pip install mkdocs-material 
-      - run: mkdocs gh-deploy --force
+
+      - name: Cache dependencies
+        uses: actions/cache@v4
+        with:
+          key: ${{ runner.os }}-python-${{ hashFiles('requirements.txt') }}
+          path: ~/.cache/pip
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Deploy to GitHub Pages
+        run: mkdocs gh-deploy --force
