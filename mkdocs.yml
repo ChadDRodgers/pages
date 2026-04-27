@@ -4,9 +4,28 @@ repo_url: https://github.com/ChadDRodgers/pages
 
 theme:
   name: material
+
   features:
     - navigation.tabs
     - navigation.tabs.sticky
+
+  palette: 
+    # Palette toggle for light mode
+    - scheme: default
+      primary: green
+      accent: indigo
+      toggle:
+        icon: material/brightness-7 # Sun icon
+        name: Switch to dark mode
+    
+    # Palette toggle for dark mode
+    - scheme: slate
+      primary: green
+      accent: indigo
+      toggle:
+        icon: material/brightness-4 # Moon icon
+        name: Switch to light mode
+
   custom_dir: overrides  # Point here if you need to override HTML templates
 
 extra_css:
