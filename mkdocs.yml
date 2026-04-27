@@ -15,7 +15,7 @@ theme:
       primary: green
       accent: indigo
       toggle:
-        icon: material/brightness-7 # Sun icon
+        icon: material/weather-sunny # Sun icon
         name: Switch to dark mode
     
     # Palette toggle for dark mode
@@ -23,7 +23,7 @@ theme:
       primary: green
       accent: indigo
       toggle:
-        icon: material/brightness-4 # Moon icon
+        icon: material/weather-night # Moon icon
         name: Switch to light mode
 
   custom_dir: overrides  # Point here if you need to override HTML templates
