@@ -4,6 +4,9 @@ repo_url: https://github.com/ChadDRodgers/pages
 
 theme:
   name: material
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
   custom_dir: overrides  # Point here if you need to override HTML templates
 
 extra_css:
@@ -14,3 +17,7 @@ extra_javascript:
 
 nav:
   - Home: index.md
+  - Articles:
+      - My Ideas: articles/ideas.md
+      - Tutorials: articles/tutorials.md
+  - About Me: about.md
