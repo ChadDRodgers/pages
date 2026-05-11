@@ -38,8 +38,7 @@ nav:
   - Home: index.md
   - Articles:
       - My Ideas: articles/ideas.md
-  - About Me: about.md
-
-    - Tutorials:
+  - Tutorials:
       - Overview: tutorials/index.md
       - CoachProxy — Reflash & Tailscale: tutorials/reflash_coachproxy_add_tailscale.md
+  - About Me: about.md
