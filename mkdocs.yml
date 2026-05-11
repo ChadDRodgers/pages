@@ -40,5 +40,7 @@ nav:
       - My Ideas: articles/ideas.md
   - Tutorials:
       - Overview: tutorials/index.md
+      - Creating Pi Image: tutorials/creating_pi_image.md
+      - Shutdown CoachProxy: tutorials/shutdown_coachproxy.md
       - CoachProxy — Reflash & Tailscale: tutorials/reflash_coachproxy_add_tailscale.md
   - About Me: about.md
