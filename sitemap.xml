@@ -2,18 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://chaddrodgers.github.io/pages/</loc>
-         <lastmod>2026-04-27</lastmod>
+         <lastmod>2026-05-11</lastmod>
     </url>
     <url>
          <loc>https://chaddrodgers.github.io/pages/about/</loc>
-         <lastmod>2026-04-27</lastmod>
+         <lastmod>2026-05-11</lastmod>
     </url>
     <url>
          <loc>https://chaddrodgers.github.io/pages/articles/ideas/</loc>
-         <lastmod>2026-04-27</lastmod>
+         <lastmod>2026-05-11</lastmod>
+    </url>
+    <url>
+         <loc>https://chaddrodgers.github.io/pages/articles/reflash_coachproxy_add_tailscale/</loc>
+         <lastmod>2026-05-11</lastmod>
     </url>
     <url>
          <loc>https://chaddrodgers.github.io/pages/articles/tutorials/</loc>
-         <lastmod>2026-04-27</lastmod>
+         <lastmod>2026-05-11</lastmod>
     </url>
 </urlset>
