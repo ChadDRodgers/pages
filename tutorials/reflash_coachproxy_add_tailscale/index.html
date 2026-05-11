@@ -8,9 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://chaddrodgers.github.io/pages/articles/reflash_coachproxy_add_tailscale/">
+        <link rel="canonical" href="https://chaddrodgers.github.io/pages/tutorials/reflash_coachproxy_add_tailscale/">
       
       
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../../about/">
       
       
         
@@ -21,7 +25,7 @@
     
     
       
-        <title>CoachProxy — Reflash & Tailscale Setup Guide - Chad Rodgers - Pages</title>
+        <title>CoachProxy — Reflash & Tailscale - Chad Rodgers - Pages</title>
       
     
     
@@ -110,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              CoachProxy — Reflash &amp; Tailscale Setup Guide
+              CoachProxy — Reflash & Tailscale
             
           </span>
         </div>
@@ -236,11 +240,33 @@
     
     
       <li class="md-tabs__item">
-        <a href="../ideas/" class="md-tabs__link">
+        <a href="../../articles/ideas/" class="md-tabs__link">
           
   
   
   Articles
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  Tutorials
 
         </a>
       </li>
@@ -402,7 +428,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ideas/" class="md-nav__link">
+      <a href="../../articles/ideas/" class="md-nav__link">
         
   
   
@@ -423,15 +449,41 @@
 
               
             
-              
-                
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
   
   
   
-  
-    <li class="md-nav__item">
-      <a href="../tutorials/" class="md-nav__link">
+    
+    
+    
+    
+      
         
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
   
   
   <span class="md-ellipsis">
@@ -445,7 +497,195 @@
   
   
 
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tutorials
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CoachProxy — Reflash & Tailscale
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CoachProxy — Reflash & Tailscale
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-flash-the-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Flash the image
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-update-legacy-repositories-debian-buster" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Update legacy repositories (Debian Buster)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-install-tailscale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Install Tailscale
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-authenticate-and-enable-ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Authenticate and enable SSH
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-tailscale-admin-console-and-sharing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Tailscale admin console and sharing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-local-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Local verification
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Notes
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
