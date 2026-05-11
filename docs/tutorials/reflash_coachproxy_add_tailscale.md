@@ -1,6 +1,9 @@
+tailscale ip -4
+tailscale status
 # CoachProxy — Reflash & Tailscale Setup Guide
 
 This guide walks through flashing a CoachProxy image to a microSD card, preparing legacy Debian Buster repositories (if needed), installing Tailscale, and verifying connectivity.
+
 
 ## 1. Flash the image
 
@@ -8,7 +11,26 @@ This guide walks through flashing a CoachProxy image to a microSD card, preparin
 - Recommended software: balenaEtcher or Raspberry Pi Imager
 - Process: flash your CoachProxy `.img` to the card, insert it into the Pi, and wait ~2 minutes for the device to complete its initial boot and heartbeat.
 
-## 2. Update legacy repositories (Debian Buster)
+
+## 2. SSH into the Raspberry Pi (local)
+
+Before reflashing or installing software, connect to the Raspberry Pi from a machine on the same local network. Replace the placeholders below with your values — do not use real credentials here.
+
+```bash
+# Basic SSH (replace <username> and <hostname-or-ip> with your values)
+ssh <username>@<hostname-or-ip>
+
+# If using an identity file:
+ssh -i /path/to/private_key <username>@<hostname-or-ip>
+
+# If the SSH server uses a non-standard port:
+ssh -p <port> <username>@<hostname-or-ip>
+```
+
+When connecting for the first time you may be prompted to accept the host key fingerprint. Authenticate using your account password or your SSH key as configured on the Pi. Ensure you're on a trusted local network when entering credentials.
+
+
+## 3. Update legacy repositories (Debian Buster)
 
 If the system shows "No Release file" errors, point apt to the legacy archive servers.
 
@@ -32,7 +54,7 @@ Refresh the package index:
 sudo apt update
 ```
 
-## 3. Install Tailscale
+## 4. Install Tailscale
 
 Add the GPG key and repository, then install:
 
@@ -42,7 +64,7 @@ curl -fsSL https://tailscale.com | sudo tee /etc/apt/sources.list.d/tailscale.li
 sudo apt update && sudo apt install -y tailscale
 ```
 
-## 4. Authenticate and enable SSH
+## 5. Authenticate and enable SSH
 
 Start Tailscale and authenticate the device:
 
@@ -58,7 +80,7 @@ Enable Tailscale SSH (optional):
 sudo tailscale set --ssh
 ```
 
-## 5. Tailscale admin console and sharing
+## 6. Tailscale admin console and sharing
 
 - Open the Tailscale Admin Console to view devices.
 - Find your Pi (often `raspberrypi` or `coachproxy`) and confirm the status dot is green.
@@ -71,7 +93,7 @@ To share access with another Tailscale user:
 1. Click **Share...** on the device row.
 2. Generate a share link and send it to the recipient. They can then access the CoachProxy Web UI via the device's Tailscale IP while the link is active.
 
-## 6. Local verification
+## 7. Local verification
 
 Run the following on the Pi to view the assigned Tailscale IP and connection status:
 
