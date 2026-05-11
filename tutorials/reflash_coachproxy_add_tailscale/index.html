@@ -617,10 +617,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-update-legacy-repositories-debian-buster" class="md-nav__link">
+  <a href="#2-ssh-into-the-raspberry-pi-local" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Update legacy repositories (Debian Buster)
+        2. SSH into the Raspberry Pi (local)
       
     </span>
   </a>
@@ -628,10 +628,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-install-tailscale" class="md-nav__link">
+  <a href="#3-update-legacy-repositories-debian-buster" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Install Tailscale
+        3. Update legacy repositories (Debian Buster)
       
     </span>
   </a>
@@ -639,10 +639,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-authenticate-and-enable-ssh" class="md-nav__link">
+  <a href="#4-install-tailscale" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Authenticate and enable SSH
+        4. Install Tailscale
       
     </span>
   </a>
@@ -650,10 +650,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-tailscale-admin-console-and-sharing" class="md-nav__link">
+  <a href="#5-authenticate-and-enable-ssh" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Tailscale admin console and sharing
+        5. Authenticate and enable SSH
       
     </span>
   </a>
@@ -661,10 +661,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-local-verification" class="md-nav__link">
+  <a href="#6-tailscale-admin-console-and-sharing" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6. Local verification
+        6. Tailscale admin console and sharing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-local-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Local verification
       
     </span>
   </a>
@@ -763,10 +774,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-update-legacy-repositories-debian-buster" class="md-nav__link">
+  <a href="#2-ssh-into-the-raspberry-pi-local" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Update legacy repositories (Debian Buster)
+        2. SSH into the Raspberry Pi (local)
       
     </span>
   </a>
@@ -774,10 +785,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-install-tailscale" class="md-nav__link">
+  <a href="#3-update-legacy-repositories-debian-buster" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Install Tailscale
+        3. Update legacy repositories (Debian Buster)
       
     </span>
   </a>
@@ -785,10 +796,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-authenticate-and-enable-ssh" class="md-nav__link">
+  <a href="#4-install-tailscale" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Authenticate and enable SSH
+        4. Install Tailscale
       
     </span>
   </a>
@@ -796,10 +807,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-tailscale-admin-console-and-sharing" class="md-nav__link">
+  <a href="#5-authenticate-and-enable-ssh" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Tailscale admin console and sharing
+        5. Authenticate and enable SSH
       
     </span>
   </a>
@@ -807,10 +818,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-local-verification" class="md-nav__link">
+  <a href="#6-tailscale-admin-console-and-sharing" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6. Local verification
+        6. Tailscale admin console and sharing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-local-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Local verification
       
     </span>
   </a>
@@ -848,6 +870,8 @@
   
 
 
+<p>tailscale ip -4
+tailscale status</p>
 <h1 id="coachproxy-reflash-tailscale-setup-guide">CoachProxy — Reflash &amp; Tailscale Setup Guide</h1>
 <p>This guide walks through flashing a CoachProxy image to a microSD card, preparing legacy Debian Buster repositories (if needed), installing Tailscale, and verifying connectivity.</p>
 <h2 id="1-flash-the-image">1. Flash the image</h2>
@@ -856,7 +880,19 @@
 <li>Recommended software: balenaEtcher or Raspberry Pi Imager</li>
 <li>Process: flash your CoachProxy <code>.img</code> to the card, insert it into the Pi, and wait ~2 minutes for the device to complete its initial boot and heartbeat.</li>
 </ul>
-<h2 id="2-update-legacy-repositories-debian-buster">2. Update legacy repositories (Debian Buster)</h2>
+<h2 id="2-ssh-into-the-raspberry-pi-local">2. SSH into the Raspberry Pi (local)</h2>
+<p>Before reflashing or installing software, connect to the Raspberry Pi from a machine on the same local network. Replace the placeholders below with your values — do not use real credentials here.</p>
+<pre><code class="language-bash"># Basic SSH (replace &lt;username&gt; and &lt;hostname-or-ip&gt; with your values)
+ssh &lt;username&gt;@&lt;hostname-or-ip&gt;
+
+# If using an identity file:
+ssh -i /path/to/private_key &lt;username&gt;@&lt;hostname-or-ip&gt;
+
+# If the SSH server uses a non-standard port:
+ssh -p &lt;port&gt; &lt;username&gt;@&lt;hostname-or-ip&gt;
+</code></pre>
+<p>When connecting for the first time you may be prompted to accept the host key fingerprint. Authenticate using your account password or your SSH key as configured on the Pi. Ensure you're on a trusted local network when entering credentials.</p>
+<h2 id="3-update-legacy-repositories-debian-buster">3. Update legacy repositories (Debian Buster)</h2>
 <p>If the system shows "No Release file" errors, point apt to the legacy archive servers.</p>
 <p>Update source lists:</p>
 <pre><code class="language-bash">sudo sed -i 's#raspbian.raspberrypi.org#legacy.raspbian.org#g' /etc/apt/sources.list
@@ -869,13 +905,13 @@ cat /etc/apt/sources.list.d/raspi.list
 <p>Refresh the package index:</p>
 <pre><code class="language-bash">sudo apt update
 </code></pre>
-<h2 id="3-install-tailscale">3. Install Tailscale</h2>
+<h2 id="4-install-tailscale">4. Install Tailscale</h2>
 <p>Add the GPG key and repository, then install:</p>
 <pre><code class="language-bash">curl -fsSL https://tailscale.com | sudo apt-key add -
 curl -fsSL https://tailscale.com | sudo tee /etc/apt/sources.list.d/tailscale.list
 sudo apt update &amp;&amp; sudo apt install -y tailscale
 </code></pre>
-<h2 id="4-authenticate-and-enable-ssh">4. Authenticate and enable SSH</h2>
+<h2 id="5-authenticate-and-enable-ssh">5. Authenticate and enable SSH</h2>
 <p>Start Tailscale and authenticate the device:</p>
 <pre><code class="language-bash">sudo tailscale up
 </code></pre>
@@ -883,7 +919,7 @@ sudo apt update &amp;&amp; sudo apt install -y tailscale
 <p>Enable Tailscale SSH (optional):</p>
 <pre><code class="language-bash">sudo tailscale set --ssh
 </code></pre>
-<h2 id="5-tailscale-admin-console-and-sharing">5. Tailscale admin console and sharing</h2>
+<h2 id="6-tailscale-admin-console-and-sharing">6. Tailscale admin console and sharing</h2>
 <ul>
 <li>Open the Tailscale Admin Console to view devices.</li>
 <li>Find your Pi (often <code>raspberrypi</code> or <code>coachproxy</code>) and confirm the status dot is green.</li>
@@ -895,7 +931,7 @@ sudo apt update &amp;&amp; sudo apt install -y tailscale
 <li>Click <strong>Share...</strong> on the device row.</li>
 <li>Generate a share link and send it to the recipient. They can then access the CoachProxy Web UI via the device's Tailscale IP while the link is active.</li>
 </ol>
-<h2 id="6-local-verification">6. Local verification</h2>
+<h2 id="7-local-verification">7. Local verification</h2>
 <p>Run the following on the Pi to view the assigned Tailscale IP and connection status:</p>
 <pre><code class="language-bash">tailscale ip -4
 tailscale status
