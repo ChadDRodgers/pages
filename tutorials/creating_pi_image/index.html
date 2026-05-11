@@ -8,29 +8,31 @@
       
       
       
-        <link rel="canonical" href="https://chaddrodgers.github.io/pages/">
+        <link rel="canonical" href="https://chaddrodgers.github.io/pages/tutorials/creating_pi_image/">
       
       
+        <link rel="prev" href="../">
       
-        <link rel="next" href="articles/ideas/">
+      
+        <link rel="next" href="../shutdown_coachproxy/">
       
       
         
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>Chad Rodgers - Pages</title>
+        <title>Creating Pi Image - Chad Rodgers - Pages</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -49,9 +51,9 @@
       
     
     
-      <link rel="stylesheet" href="stylesheets/extra.css">
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -76,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#home" class="md-skip">
+        <a href="#creating-a-pi-master-image-macos" class="md-skip">
           Skip to content
         </a>
       
@@ -92,7 +94,7 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="Chad Rodgers - Pages" class="md-header__button md-logo" aria-label="Chad Rodgers - Pages" data-md-component="logo">
+    <a href="../.." title="Chad Rodgers - Pages" class="md-header__button md-logo" aria-label="Chad Rodgers - Pages" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -112,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Creating Pi Image
             
           </span>
         </div>
@@ -215,11 +217,9 @@
   
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="." class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
         
   
   
@@ -240,7 +240,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="articles/ideas/" class="md-tabs__link">
+        <a href="../../articles/ideas/" class="md-tabs__link">
           
   
   
@@ -256,11 +256,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="tutorials/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
           
   
   
@@ -278,7 +280,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="about/" class="md-tabs__link">
+      <a href="../../about/" class="md-tabs__link">
         
   
   
@@ -319,7 +321,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Chad Rodgers - Pages" class="md-nav__button md-logo" aria-label="Chad Rodgers - Pages" data-md-component="logo">
+    <a href="../.." title="Chad Rodgers - Pages" class="md-nav__button md-logo" aria-label="Chad Rodgers - Pages" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -346,19 +348,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -374,7 +367,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -436,7 +428,7 @@
   
   
     <li class="md-nav__item">
-      <a href="articles/ideas/" class="md-nav__link">
+      <a href="../../articles/ideas/" class="md-nav__link">
         
   
   
@@ -468,24 +460,29 @@
       
   
   
+    
   
   
+  
     
     
     
     
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
@@ -503,7 +500,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -521,7 +518,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tutorials/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   
@@ -546,10 +543,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="tutorials/creating_pi_image/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Creating Pi Image
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -565,6 +589,103 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#recommended-applepibaker-gui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recommended: ApplePi‑Baker (GUI)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#native-macos-method-terminal-dd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Native macOS method (Terminal — dd)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alternative-disk-utility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Alternative: Disk Utility
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#restoring-the-image-to-a-new-drive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Restoring the image to a new drive
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tailscale-and-identity-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tailscale and identity considerations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verification
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#safety-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Safety tips
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -577,7 +698,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tutorials/shutdown_coachproxy/" class="md-nav__link">
+      <a href="../shutdown_coachproxy/" class="md-nav__link">
         
   
   
@@ -605,7 +726,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tutorials/reflash_coachproxy_add_tailscale/" class="md-nav__link">
+      <a href="../reflash_coachproxy_add_tailscale/" class="md-nav__link">
         
   
   
@@ -640,7 +761,7 @@
   
   
     <li class="md-nav__item">
-      <a href="about/" class="md-nav__link">
+      <a href="../../about/" class="md-nav__link">
         
   
   
@@ -680,6 +801,91 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#recommended-applepibaker-gui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recommended: ApplePi‑Baker (GUI)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#native-macos-method-terminal-dd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Native macOS method (Terminal — dd)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alternative-disk-utility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Alternative: Disk Utility
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#restoring-the-image-to-a-new-drive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Restoring the image to a new drive
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tailscale-and-identity-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tailscale and identity considerations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verification
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#safety-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Safety tips
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -698,7 +904,72 @@
   
 
 
-<h1 id="home">Home</h1>
+<h1 id="creating-a-pi-master-image-macos">Creating a Pi master image (macOS)</h1>
+<p>This guide shows several ways to create a master Raspberry Pi image on macOS for cloning or backups. Use caution — imaging tools can overwrite drives.</p>
+<h2 id="recommended-applepibaker-gui">Recommended: ApplePi‑Baker (GUI)</h2>
+<ul>
+<li>Download and install ApplePi‑Baker v2 (or similar Pi imaging utility).</li>
+<li>Insert the source microSD/SSD and open the app.</li>
+<li>Select the source drive and choose <strong>Create Backup</strong> to produce a <code>.img</code> (or compressed) copy.</li>
+<li>To restore, select the target drive and use <strong>Restore Backup</strong>, choosing the saved image file.</li>
+</ul>
+<p>ApplePi‑Baker provides a simple graphical workflow and verifies operations for you.</p>
+<h2 id="native-macos-method-terminal-dd">Native macOS method (Terminal — dd)</h2>
+<p>Warning: <code>dd</code> is powerful and destructive if given the wrong device. Double-check device IDs before running.</p>
+<ol>
+<li>Identify disks:</li>
+</ol>
+<pre><code class="language-bash">diskutil list
+</code></pre>
+<ol>
+<li>Unmount the source disk (replace <code>&lt;N&gt;</code> with the disk number, e.g. <code>2</code>):</li>
+</ol>
+<pre><code class="language-bash">diskutil unmountDisk /dev/disk&lt;N&gt;
+</code></pre>
+<ol>
+<li>Create the image (use <code>rdisk</code> for raw speed; replace <code>&lt;N&gt;</code>):</li>
+</ol>
+<pre><code class="language-bash">sudo dd if=/dev/rdisk&lt;N&gt; of=~/Desktop/CoachProxy_Master.img bs=1m status=progress
+</code></pre>
+<p>Notes:
+- <code>if=</code> is the source device (the Pi drive).
+- <code>of=</code> is the output file path where the image will be saved.
+- <code>bs=1m</code> sets a larger block size for faster transfers.</p>
+<h2 id="alternative-disk-utility">Alternative: Disk Utility</h2>
+<ul>
+<li>Open Disk Utility, select the device in the sidebar.</li>
+<li>Choose <strong>File → New Image → Image from [Device]</strong> and set format to <strong>DVD/CD master</strong> to capture all sectors.</li>
+</ul>
+<p>Disk Utility may produce <code>.dmg</code> files; convert if you need a raw <code>.img</code>.</p>
+<h2 id="restoring-the-image-to-a-new-drive">Restoring the image to a new drive</h2>
+<ul>
+<li>Using ApplePi‑Baker: choose the saved image and <strong>Restore</strong> to the target drive.</li>
+<li>Using <code>dd</code> (reverse <code>if</code>/<code>of</code>):</li>
+</ul>
+<pre><code class="language-bash">sudo dd if=~/Desktop/CoachProxy_Master.img of=/dev/rdisk&lt;TARGET_N&gt; bs=1m status=progress
+</code></pre>
+<h2 id="tailscale-and-identity-considerations">Tailscale and identity considerations</h2>
+<p>When cloning a device that has Tailscale configured, clear the old device identity on the first boot of the restored system to avoid duplicate nodes:</p>
+<pre><code class="language-bash">sudo tailscale logout
+</code></pre>
+<p>Also consider changing the hostname and SSH keys on the cloned device to avoid conflicts:</p>
+<pre><code class="language-bash"># Change hostname (example)
+sudo hostnamectl set-hostname &lt;new-hostname&gt;
+
+# Regenerate SSH host keys (Debian-based example)
+sudo rm /etc/ssh/ssh_host_* &amp;&amp; sudo dpkg-reconfigure openssh-server
+</code></pre>
+<h2 id="verification">Verification</h2>
+<ul>
+<li>Mount the image or boot the device and confirm system services start as expected.</li>
+<li>Verify network and Tailscale connectivity after re-authenticating.</li>
+</ul>
+<h2 id="safety-tips">Safety tips</h2>
+<ul>
+<li>Always confirm device IDs with <code>diskutil list</code> before running destructive commands.</li>
+<li>Keep at least one verified backup copy off the device you are imaging.</li>
+<li>Inspect downloaded tools (like ApplePi‑Baker) from their official sources.</li>
+</ul>
 
 
 
@@ -748,12 +1019,12 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.tabs", "navigation.tabs.sticky"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
-        <script src="javascripts/extra.js"></script>
+        <script src="../../javascripts/extra.js"></script>
       
     
   </body>

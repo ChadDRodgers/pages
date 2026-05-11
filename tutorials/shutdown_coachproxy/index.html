@@ -8,29 +8,31 @@
       
       
       
-        <link rel="canonical" href="https://chaddrodgers.github.io/pages/">
+        <link rel="canonical" href="https://chaddrodgers.github.io/pages/tutorials/shutdown_coachproxy/">
       
       
+        <link rel="prev" href="../creating_pi_image/">
       
-        <link rel="next" href="articles/ideas/">
+      
+        <link rel="next" href="../reflash_coachproxy_add_tailscale/">
       
       
         
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>Chad Rodgers - Pages</title>
+        <title>Shutdown CoachProxy - Chad Rodgers - Pages</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -49,9 +51,9 @@
       
     
     
-      <link rel="stylesheet" href="stylesheets/extra.css">
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -76,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#home" class="md-skip">
+        <a href="#shutdown-coachproxy-safely" class="md-skip">
           Skip to content
         </a>
       
@@ -92,7 +94,7 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="Chad Rodgers - Pages" class="md-header__button md-logo" aria-label="Chad Rodgers - Pages" data-md-component="logo">
+    <a href="../.." title="Chad Rodgers - Pages" class="md-header__button md-logo" aria-label="Chad Rodgers - Pages" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -112,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Shutdown CoachProxy
             
           </span>
         </div>
@@ -215,11 +217,9 @@
   
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="." class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
         
   
   
@@ -240,7 +240,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="articles/ideas/" class="md-tabs__link">
+        <a href="../../articles/ideas/" class="md-tabs__link">
           
   
   
@@ -256,11 +256,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="tutorials/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
           
   
   
@@ -278,7 +280,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="about/" class="md-tabs__link">
+      <a href="../../about/" class="md-tabs__link">
         
   
   
@@ -319,7 +321,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Chad Rodgers - Pages" class="md-nav__button md-logo" aria-label="Chad Rodgers - Pages" data-md-component="logo">
+    <a href="../.." title="Chad Rodgers - Pages" class="md-nav__button md-logo" aria-label="Chad Rodgers - Pages" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -346,19 +348,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -374,7 +367,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -436,7 +428,7 @@
   
   
     <li class="md-nav__item">
-      <a href="articles/ideas/" class="md-nav__link">
+      <a href="../../articles/ideas/" class="md-nav__link">
         
   
   
@@ -468,24 +460,29 @@
       
   
   
+    
   
   
+  
     
     
     
     
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
@@ -503,7 +500,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -521,7 +518,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tutorials/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   
@@ -549,7 +546,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tutorials/creating_pi_image/" class="md-nav__link">
+      <a href="../creating_pi_image/" class="md-nav__link">
         
   
   
@@ -574,10 +571,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="tutorials/shutdown_coachproxy/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shutdown CoachProxy
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -593,6 +617,81 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#recommended-use-the-coachproxy-ui-preferred" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recommended: use the CoachProxy UI (preferred)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-line-shutdown-fallback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command line shutdown (fallback)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#physically-removing-power" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Physically removing power
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#emergency-unresponsive-device" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Emergency / unresponsive device
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tips
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -605,7 +704,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tutorials/reflash_coachproxy_add_tailscale/" class="md-nav__link">
+      <a href="../reflash_coachproxy_add_tailscale/" class="md-nav__link">
         
   
   
@@ -640,7 +739,7 @@
   
   
     <li class="md-nav__item">
-      <a href="about/" class="md-nav__link">
+      <a href="../../about/" class="md-nav__link">
         
   
   
@@ -680,6 +779,69 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#recommended-use-the-coachproxy-ui-preferred" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recommended: use the CoachProxy UI (preferred)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-line-shutdown-fallback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command line shutdown (fallback)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#physically-removing-power" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Physically removing power
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#emergency-unresponsive-device" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Emergency / unresponsive device
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tips
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -698,7 +860,31 @@
   
 
 
-<h1 id="home">Home</h1>
+<h1 id="shutdown-coachproxy-safely">Shutdown CoachProxy safely</h1>
+<p>Performing a proper software shutdown prevents SD card corruption and reduces the risk of boot problems. This guide lists safe shutdown methods and what to do in emergency situations.</p>
+<h2 id="recommended-use-the-coachproxy-ui-preferred">Recommended: use the CoachProxy UI (preferred)</h2>
+<p>If the CoachProxy web UI is available, use its System → <strong>Shutdown</strong> or <strong>Reboot</strong> option. This performs a controlled shutdown that is safest for the device and storage. Use the UI first when possible; the steps below remain available if the UI is unreachable.</p>
+<h2 id="command-line-shutdown-fallback">Command line shutdown (fallback)</h2>
+<p>If the UI is unavailable, connect locally or via Tailscale SSH and run:</p>
+<pre><code class="language-bash">sudo shutdown -h now
+</code></pre>
+<p>Wait for the system activity LED (the green "ACT" light on Raspberry Pi models) to stop blinking and turn off before removing power.</p>
+<h2 id="physically-removing-power">Physically removing power</h2>
+<ul>
+<li>After a confirmed software shutdown (UI or CLI) and when LEDs indicate the device is powered down, you may unplug the power connector.</li>
+<li>Use gentle, steady force when disconnecting any clip-style connectors.</li>
+</ul>
+<h2 id="emergency-unresponsive-device">Emergency / unresponsive device</h2>
+<p>If the system is completely unresponsive and you cannot access the UI or SSH, pulling the power may be unavoidable. After an emergency unplug:</p>
+<ul>
+<li>Inspect the storage (SD card) for filesystem errors on the next boot and restore from backups if needed.</li>
+<li>Consider running a filesystem check on another machine or mounting the card to verify integrity.</li>
+</ul>
+<h2 id="tips">Tips</h2>
+<ul>
+<li>Always keep recent backups or a master image handy for quick recovery.</li>
+<li>Consider using an external UPS if the device is in a location prone to power interruptions.</li>
+</ul>
 
 
 
@@ -748,12 +934,12 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.tabs", "navigation.tabs.sticky"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
-        <script src="javascripts/extra.js"></script>
+        <script src="../../javascripts/extra.js"></script>
       
     
   </body>
