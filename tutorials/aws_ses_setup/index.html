@@ -8,13 +8,9 @@
       
       
       
-        <link rel="canonical" href="https://chaddrodgers.github.io/pages/tutorials/node-red/">
+        <link rel="canonical" href="https://chaddrodgers.github.io/pages/tutorials/aws_ses_setup/">
       
       
-        <link rel="prev" href="../shutdown_coachproxy/">
-      
-      
-        <link rel="next" href="../aws_email_setup/">
       
       
         
@@ -25,7 +21,7 @@
     
     
       
-        <title>Node-RED - Chad Rodgers - Pages</title>
+        <title>Aws ses setup - Chad Rodgers - Pages</title>
       
     
     
@@ -78,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#node-red-coachproxy-wizard-dashboard-ui-tutorial" class="md-skip">
+        <a href="#step-1-purchase-your-domain-via-route-53" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Node-RED
+              Aws ses setup
             
           </span>
         </div>
@@ -256,12 +252,10 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
+      <li class="md-tabs__item">
         <a href="../creating_pi_image/" class="md-tabs__link">
           
   
@@ -460,29 +454,24 @@
       
   
   
-    
   
   
-  
     
     
     
     
       
-        
-        
-      
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
   
   
@@ -500,7 +489,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -599,37 +588,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Node-RED
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../node-red/" class="md-nav__link">
         
   
   
@@ -645,164 +607,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#purpose" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Purpose
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Prerequisites
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Overview
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#steps" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Steps
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Steps">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-open-the-node-red-editor" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1) Open the Node-RED editor
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-launch-the-coachproxy-wizard" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2) Launch the coachproxy wizard
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-add-a-dashboard-tab" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3) Add a Dashboard Tab
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-add-a-group-to-the-tab" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4) Add a Group to the Tab
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-add-a-dashboard-ui-template-element-and-assign-it-to-the-group" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5) Add a Dashboard UI template element and assign it to the group
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6-test-and-iterate" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6) Test and iterate
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#troubleshooting" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Troubleshooting
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tips" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Tips
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -915,8 +719,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -925,10 +727,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#purpose" class="md-nav__link">
+  <a href="#step-1-purchase-your-domain-via-route-53" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Purpose
+        Step 1: Purchase Your Domain via Route 53
       
     </span>
   </a>
@@ -936,10 +738,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
+  <a href="#step-2-verify-your-identities-in-amazon-ses" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Prerequisites
+        Step 2: Verify Your Identities in Amazon SES
       
     </span>
   </a>
@@ -947,10 +749,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
+  <a href="#step-3-request-ses-production-access-move-out-of-sandbox" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Overview
+        Step 3: Request SES Production Access (Move out of Sandbox)
       
     </span>
   </a>
@@ -958,22 +760,55 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#steps" class="md-nav__link">
+  <a href="#step-4-configure-domain-mx-records" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Steps
+        Step 4: Configure Domain MX Records
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Steps">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-create-an-s3-storage-bucket-with-an-automated-purge-rule" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Create an S3 Storage Bucket with an Automated Purge Rule
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-6-deploy-the-smart-python-lambda-forwarder-with-spam-scanning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6: Deploy the Smart Python Lambda Forwarder (With Spam Scanning)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-configuration-management-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --- CONFIGURATION MANAGEMENT ---CONFIG = {
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="--- CONFIGURATION MANAGEMENT ---CONFIG = {">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-open-the-node-red-editor" class="md-nav__link">
+  <a href="#step-7-create-the-ses-receipt-rule-group-with-tls-enforcement" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1) Open the Node-RED editor
+        Step 7: Create the SES Receipt Rule Group (With TLS Enforcement)
       
     </span>
   </a>
@@ -981,10 +816,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-launch-the-coachproxy-wizard" class="md-nav__link">
+  <a href="#complete-cohesive-data-architecture-flow" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2) Launch the coachproxy wizard
+        Complete Cohesive Data Architecture Flow
       
     </span>
   </a>
@@ -992,10 +827,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-add-a-dashboard-tab" class="md-nav__link">
+  <a href="#final-result-re-stated" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3) Add a Dashboard Tab
+        ✅ Final Result Re-stated
       
     </span>
   </a>
@@ -1003,32 +838,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-add-a-group-to-the-tab" class="md-nav__link">
+  <a href="#your-enterprise-grade-serverless-email-forwarding-pipeline-is-fully-implemented-emails-sent-to-your-custom-route-53-domain-are-scanned-for-malware-and-spam-saved-temporarily-to-amazon-s3-and-processed-via-a-python-312-lambda-function-which-safely-rewrites-the-parameters-to-pass-modern-authentication-guidelines-before-delivering-the-email-directly-to-your-personal-gmail-or-icloud-account" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4) Add a Group to the Tab
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-add-a-dashboard-ui-template-element-and-assign-it-to-the-group" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5) Add a Dashboard UI template element and assign it to the group
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6-test-and-iterate" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6) Test and iterate
+        Your enterprise-grade, serverless email forwarding pipeline is fully implemented. Emails sent to your custom Route 53 domain are scanned for malware and spam, saved temporarily to Amazon S3, and processed via a Python 3.12 Lambda function which safely rewrites the parameters to pass modern authentication guidelines before delivering the email directly to your personal Gmail or iCloud account.
       
     </span>
   </a>
@@ -1037,28 +850,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#troubleshooting" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Troubleshooting
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tips" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Tips
-      
-    </span>
-  </a>
   
 </li>
       
@@ -1082,90 +873,263 @@
   
 
 
-<h1 id="node-red-coachproxy-wizard-dashboard-ui-tutorial">Node-RED: coachproxy Wizard + Dashboard UI (Tutorial)</h1>
-<h2 id="purpose">Purpose</h2>
-<p>This tutorial shows how to access the coachproxy Node-RED wizard, create a Dashboard tab, add a group, and place a Dashboard UI element (using the <code>template</code> node) into that group.</p>
-<h2 id="prerequisites">Prerequisites</h2>
-<ul>
-<li>Node-RED is installed and running (typically at <code>http://&lt;host&gt;:1880</code>).</li>
-<li>The coachproxy integration or nodes are installed in Node-RED (the workspace provides a coachproxy wizard/node).</li>
-<li>The <code>node-red-dashboard</code> package is installed and enabled.</li>
-</ul>
-<h2 id="overview">Overview</h2>
-<ol>
-<li>Open the Node-RED editor.</li>
-<li>Launch the coachproxy wizard to configure coach connection/settings.</li>
-<li>Add a Dashboard tab.</li>
-<li>Add a Dashboard group inside that tab.</li>
-<li>Add a <code>template</code> dashboard UI element, assign it to the group, and deploy.</li>
-</ol>
-<h2 id="steps">Steps</h2>
-<h3 id="1-open-the-node-red-editor">1) Open the Node-RED editor</h3>
-<ul>
-<li>In a browser, navigate to <code>http://&lt;node-red-host&gt;:1880</code> (replace <code>&lt;node-red-host&gt;</code> with your host or IP).</li>
-<li>Log in if authentication is enabled.</li>
-</ul>
-<h3 id="2-launch-the-coachproxy-wizard">2) Launch the coachproxy wizard</h3>
-<ul>
-<li>In the Node-RED editor, look for the coachproxy integration. Common places to find it:</li>
-<li>The right-hand sidebar: some node packages add a sidebar panel named “CoachProxy” or similar.</li>
-<li>The node palette: type <code>coachproxy</code> in the palette search; a wizard node or helper node may appear.</li>
-<li>If a dedicated “CoachProxy Wizard” node exists, drag it into a flow and double-click it to open the configuration dialog or wizard button.</li>
-<li>Follow the prompts to configure connection details (coach host, ports, credentials, and any options the wizard requests). Save/apply the changes.</li>
-</ul>
-<p>Notes: If your installation exposes a separate web-based wizard for coachproxy (for example <code>/coachproxy-wizard</code>), open that URL in your browser and follow the same configuration steps.</p>
-<h3 id="3-add-a-dashboard-tab">3) Add a Dashboard Tab</h3>
-<ul>
-<li>Ensure the <code>node-red-dashboard</code> sidebar is visible. If not, install/enable <code>node-red-dashboard</code>.</li>
-<li>In the Dashboard sidebar, click the menu to add a new Tab.</li>
-<li>Provide a name (for example, <code>CoachProxy</code>) and optional icon.</li>
-</ul>
-<h3 id="4-add-a-group-to-the-tab">4) Add a Group to the Tab</h3>
-<ul>
-<li>In the Dashboard sidebar, under the new Tab, click to add a Group.</li>
-<li>Configure the Group name (for example, <code>Controls</code>), set width/columns and order as needed.</li>
-</ul>
-<h3 id="5-add-a-dashboard-ui-template-element-and-assign-it-to-the-group">5) Add a Dashboard UI <code>template</code> element and assign it to the group</h3>
-<ul>
-<li>In the Node-RED palette find the <code>template</code> node (it lives under the <code>dashboard</code> category when <code>node-red-dashboard</code> is installed).</li>
-<li>Drag the <code>template</code> node into your flow.</li>
-<li>Double-click the <code>template</code> node and set these properties:</li>
-<li><strong>Name:</strong> friendly name like <code>Coach UI Template</code>.</li>
-<li><strong>Group:</strong> select the group you created in step 4 (e.g., <code>Controls / CoachProxy</code>).</li>
-<li><strong>Template:</strong> paste HTML/Angular markup for the element (example below).</li>
-<li><strong>Size:</strong> choose appropriate width/height if needed.</li>
-<li>Connect the <code>template</code> node to any input nodes you need (e.g., an <code>inject</code> or a function that sends payloads) and click <code>Deploy</code>.</li>
-</ul>
-<p>Example <code>template</code> content (simple card showing a value):</p>
-<pre><code class="language-html">&lt;div style=&quot;padding:6px&quot;&gt;
-  &lt;md-card&gt;
-    &lt;md-card-title&gt;Coach Status&lt;/md-card-title&gt;
-    &lt;md-card-content&gt;
-      &lt;div ng-bind=&quot;msg.payload.status || 'unknown'&quot;&gt;&lt;/div&gt;
-    &lt;/md-card-content&gt;
-  &lt;/md-card&gt;
-&lt;/div&gt;
-</code></pre>
-<p>Example flow snippet (conceptual):
-- <code>inject</code> node (or incoming msg from coachproxy) -&gt; <code>function</code> (map data to msg.payload) -&gt; <code>template</code> (Dashboard group)</p>
-<h3 id="6-test-and-iterate">6) Test and iterate</h3>
-<ul>
-<li>After deploying, open the Dashboard UI (usually <code>http://&lt;node-red-host&gt;:1880/ui</code>) to view the new Tab and Group.</li>
-<li>Trigger an inject or ensure coachproxy sends data to the flow so the template displays live values.</li>
-</ul>
-<h2 id="troubleshooting">Troubleshooting</h2>
-<ul>
-<li>If you do not see the coachproxy wizard or nodes, verify the coachproxy node package is installed under the Node-RED palette manager.</li>
-<li>If the Dashboard group is not available in the <code>template</code> node config, restart Node-RED to refresh the UI list and ensure <code>node-red-dashboard</code> is active.</li>
-<li>Check browser console and Node-RED logs for errors if the template content does not render.</li>
-</ul>
-<h2 id="tips">Tips</h2>
-<ul>
-<li>Use small, focused template elements for easier layout control.</li>
-<li>Prefer binding to <code>msg.payload</code> for simple data updates; use Angular expressions for more advanced dynamic content.</li>
-</ul>
+<p>AI Generated Tutorial</p>
+<p>To filter out spam emails in your forwarding setup, you must implement a multi-layered defense. This includes activating Amazon SES IP Blocklists, enabling TLS enforcement, and adding an inline Spam Content Scanner using SpamAssassin-style headers inside your Python Lambda function. This prevents junk mail from being forwarded to your personal Gmail or iCloud account, which protects your domain's sending reputation.
+Here is your updated, complete, end-to-end master blueprint with built-in spam prevention.</p>
 <hr />
-<p>Created as a concise how-to for adding coachproxy-driven Dashboard UI elements using Node-RED.</p>
+<h2 id="step-1-purchase-your-domain-via-route-53">Step 1: Purchase Your Domain via Route 53</h2>
+<p>You need a custom domain name (like example.com) to serve as your personal email routing address.</p>
+<ol>
+<li>Open the <a href="https://console.aws.amazon.com/ses">AWS Management Console</a> and navigate to the Route 53 service.</li>
+<li>In the left sidebar, click Registered Domains, then click Register Domain.</li>
+<li>Type in your desired domain name, choose an extension (such as .com or .net), and check its availability.</li>
+<li>Click Proceed to checkout, fill out your contact details, and click Submit.</li>
+<li>Note: It can take up to an hour for registration to process. Once complete, Route 53 will automatically generate a public Hosted Zone for your domain.</li>
+</ol>
+<hr />
+<h2 id="step-2-verify-your-identities-in-amazon-ses">Step 2: Verify Your Identities in Amazon SES</h2>
+<p>AWS requires proof that you own both the custom receiving domain and the personal destination address.</p>
+<ol>
+<li>Navigate to the Amazon SES (Simple Email Service) console.</li>
+<li>In the left sidebar, click Verified Identities, then click Create Identity.</li>
+<li>Select Domain as your identity type and enter your custom domain (e.g., yourdomain.com).</li>
+<li>Under Advanced DKIM settings, leave it as Easy DKIM. Check the box to Publish DNS records to Route 53 so AWS automatically handles the validation records. Click Create Identity.</li>
+<li>Click Create Identity a second time. Select Email Address.</li>
+<li>Enter your personal Gmail or iCloud address and click Create Identity.</li>
+<li>Log into that personal inbox, open the confirmation email from AWS, and click the verification link.</li>
+</ol>
+<hr />
+<h2 id="step-3-request-ses-production-access-move-out-of-sandbox">Step 3: Request SES Production Access (Move out of Sandbox)</h2>
+<p>All new AWS accounts start in a restricted "Sandbox." To accept public mail from anyone and forward it out, you must exit the sandbox.</p>
+<ol>
+<li>In the SES console sidebar, click Account Dashboard.</li>
+<li>Locate the sandbox banner and click Request Production Access.</li>
+<li>Fill out the application form:</li>
+<li>Mail Type: Select Transactional.<ul>
+<li>Website URL: Enter your custom domain name.</li>
+<li>Use Case Description: Enter this exact text: "I am building an inbound email forwarding pipeline. Public emails sent to my custom domain will be securely deposited into an S3 bucket and processed by an AWS Lambda function. The function will analyze SES spam metrics, discard junk mail, modify the headers to ensure SPF/DMARC compatibility, and forward clean emails to my personal Gmail/iCloud address. Old emails will be automatically pruned via S3 Lifecycle rules."</li>
+</ul>
+</li>
+<li>Submit the request. Approval usually takes between 1 and 24 hours.</li>
+</ol>
+<hr />
+<h2 id="step-4-configure-domain-mx-records">Step 4: Configure Domain MX Records</h2>
+<p>To force internet traffic to route emails sent to your domain over to Amazon SES, you must update your Mail Exchange (MX) records.</p>
+<ol>
+<li>Open the Route 53 console and click on Hosted Zones.</li>
+<li>Click your custom domain name from the list.</li>
+<li>Click Create Record and configure these settings:</li>
+<li>Record Name: Leave blank (matches the root domain).<ul>
+<li>Record Type: Choose MX.</li>
+<li>TTL: 300</li>
+<li>Value: 10 inbound-smtp.<YOUR-AWS-REGION>.amazonaws.com (Replace <YOUR-AWS-REGION> with your actual AWS region code, like us-east-1 for N. Virginia).</li>
+</ul>
+</li>
+<li>Click Create Records.</li>
+</ol>
+<hr />
+<h2 id="step-5-create-an-s3-storage-bucket-with-an-automated-purge-rule">Step 5: Create an S3 Storage Bucket with an Automated Purge Rule</h2>
+<p>SES must write incoming email payloads directly to an S3 bucket before processing. We will build this bucket and apply a built-in lifecycle rule to automatically delete old emails after 3 days.</p>
+<ol>
+<li>Navigate to the S3 console and click Create Bucket.</li>
+<li>Enter a globally unique name (e.g., my-ses-email-storage-bucket-12345), leave all default settings, and click Create Bucket.</li>
+<li>Click into your new bucket, select the Permissions tab, find Bucket Policy, and click Edit.</li>
+<li>Paste the following JSON policy block to allow the SES service to write files here. Replace YOUR_ACCOUNT_ID and YOUR_BUCKET_NAME with your actual info:</li>
+</ol>
+<p>{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowSESPut",
+            "Effect": "Allow",
+            "Principal": {
+                "Service": "://amazonaws.com"
+            },
+            "Action": "s3:PutObject",
+            "Resource": "arn:aws:s3:::YOUR_BUCKET_NAME/*",
+            "Condition": {
+                "StringEquals": {
+                    "aws:Referer": "YOUR_ACCOUNT_ID"
+                }
+            }
+        }
+    ]
+}</p>
+<ol>
+<li>Click Save Changes.</li>
+<li>Switch to the Management tab at the top of the bucket page.</li>
+<li>Click Create lifecycle rule and set these configurations:</li>
+<li>Lifecycle rule name: Delete-Old-SES-Emails<ul>
+<li>Rule scope: Choose Apply to all objects in the bucket (check the acknowledgement box).</li>
+<li>Lifecycle rule actions: Check Expire current versions of objects.</li>
+<li>Expire current versions of objects: Set Days after object creation to 3.</li>
+</ul>
+</li>
+<li>Click Create rule. S3 will now natively delete processed files in the background completely for free.</li>
+</ol>
+<hr />
+<h2 id="step-6-deploy-the-smart-python-lambda-forwarder-with-spam-scanning">Step 6: Deploy the Smart Python Lambda Forwarder (With Spam Scanning)</h2>
+<p>This updated script intercepts the email and evaluates its Spam, Virus, SPF, DKIM, and DMARC verdicts provided by AWS SES. If the email fails these security validations, the script drops the email immediately to preserve your personal inbox and your forwarding IP reputation.</p>
+<ol>
+<li>Navigate to the Lambda console and click Create Function.</li>
+<li>Select Author from scratch, name the function SES-Email-Forwarder, and select Python 3.12 as the runtime.</li>
+<li>Expand Change default execution role, choose Create a new role with basic Lambda permissions, and click Create function.</li>
+<li>Once loaded, go to the Configuration tab, click Permissions, and click the blue link under Role Name to open the IAM role in a new tab.</li>
+<li>Click Add Permissions -&gt; Attach Policies. Search for and check the boxes next to AmazonS3FullAccess and AmazonSESFullAccess. Click Add Permissions, then close that IAM tab.</li>
+<li>Return to your Lambda window, select the Code tab, double-click lambda_function.py in the file explorer, erase everything, and paste the following Python script:</li>
+</ol>
+<p>import osimport boto3import emailfrom email.mime.multipart import MIMEMultipartfrom email.mime.text import MIMEText</p>
+<h1 id="-configuration-management-config">--- CONFIGURATION MANAGEMENT ---CONFIG = {</h1>
+<pre><code>"from_email": "forwarder@yourdomain.com",       # Must be a verified identity in SES
+"bucket_name": "your-ses-email-storage-bucket", # S3 bucket name holding the emails
+"forward_mapping": {
+    "@yourdomain.com": ["yourpersonal@gmail.com"] # Catch-all routing map (Domain to Inbox)
+},
+"block_spam": True,      # Drop emails flagged as SPAM by AWS SES
+"block_viruses": True,   # Drop emails flagged as containing VIRUSES
+"strict_dmarc": False    # Set True to drop strict SPF/DKIM/DMARC failures
+</code></pre>
+<p>}
+s3_client = boto3.client("s3")ses_client = boto3.client("ses")
+def lambda_handler(event, context):
+    ses_record = event["Records"][0]["ses"]
+    message_id = ses_record["mail"]["messageId"]
+    original_recipients = ses_record["receipt"]["recipients"]
+    receipt = ses_record["receipt"]</p>
+<pre><code>print(f"Processing inbound email ID: {message_id}")
+
+# --- SPAM &amp; VIRUS FILTERING ENGINE ---
+spam_verdict = receipt.get("spamVerdict", {}).get("status", "FAIL")
+virus_verdict = receipt.get("virusVerdict", {}).get("status", "FAIL")
+spf_verdict = receipt.get("spfVerdict", {}).get("status", "FAIL")
+dkim_verdict = receipt.get("dkimVerdict", {}).get("status", "FAIL")
+dmarc_verdict = receipt.get("dmarcVerdict", {}).get("status", "FAIL")
+
+print(f"Verdicts - Spam: {spam_verdict}, Virus: {virus_verdict}, SPF: {spf_verdict}, DKIM: {dkim_verdict}, DMARC: {dmarc_verdict}")
+
+if CONFIG["block_spam"] and spam_verdict == "FAIL":
+    print(f"Aborting Pipeline: Email ID {message_id} flagged as SPAM.")
+    return {"status": "blocked", "reason": "Spam verdict failed"}
+
+if CONFIG["block_viruses"] and virus_verdict == "FAIL":
+    print(f"Aborting Pipeline: Email ID {message_id} flagged containing a VIRUS.")
+    return {"status": "blocked", "reason": "Virus verdict failed"}
+
+if CONFIG["strict_dmarc"] and (spf_verdict == "FAIL" or dkim_verdict == "FAIL" or dmarc_verdict == "FAIL"):
+    print(f"Aborting Pipeline: Email ID {message_id} failed domain authentication check.")
+    return {"status": "blocked", "reason": "DMARC/SPF verification failed"}
+
+try:
+    # 1. Fetch the raw email payload from Amazon S3
+    s3_object = s3_client.get_object(Bucket=CONFIG["bucket_name"], Key=message_id)
+    raw_email_bytes = s3_object["Body"].read()
+
+    # 2. Parse the raw email bytes into an editable email Object
+    msg = email.message_from_bytes(raw_email_bytes)
+
+    # 3. Determine the target destinations based on mapping rules
+    target_destinations = []
+    for recipient in original_recipients:
+        recipient_lower = recipient.lower()
+        if recipient_lower in CONFIG["forward_mapping"]:
+            target_destinations.extend(CONFIG["forward_mapping"][recipient_lower])
+        else:
+            domain_match = recipient_lower[recipient_lower.index("@"):]
+            if domain_match in CONFIG["forward_mapping"]:
+                target_destinations.extend(CONFIG["forward_mapping"][domain_match])
+
+    if not target_destinations:
+        print(f"No valid forwarding mapping found for recipients: {original_recipients}")
+        return {"status": "skipped", "reason": "No mapping matched"}
+
+    # 4. Sanitize and rewrite headers to ensure 100% SPF/DMARC delivery
+    original_from = msg.get("From", "Unknown Sender")
+
+    # Remove original security seals that will conflict with our new transport route
+    del msg["Return-Path"]
+    del msg["Sender"]
+    del msg["DKIM-Signature"]
+
+    # Set Reply-To to the original sender so clicking "Reply" goes to the right person
+    del msg["Reply-To"]
+    msg["Reply-To"] = original_from
+
+    # Clean and replace the From header to route through your verified domain
+    clean_display_name = original_from.split("&lt;")[0].strip().replace('"', '')
+    del msg["From"]
+    msg["From"] = f'"{clean_display_name} via Forwarder" &lt;{CONFIG["from_email"]}&gt;'
+
+    # Add spam scanning headers for downstream client transparency
+    msg["X-SES-Spam-Verdict"] = spam_verdict
+    msg["X-SES-Virus-Verdict"] = virus_verdict
+
+    # 5. Route the modified raw string out via Amazon SES
+    response = ses_client.send_raw_email(
+        Source=CONFIG["from_email"],
+        Destinations=target_destinations,
+        RawMessage={"Data": msg.as_bytes()}
+    )
+
+    print(f"Email successfully forwarded. SES Message ID: {response['MessageId']}")
+    return {"status": "success"}
+
+except Exception as e:
+    print(f"Pipeline failure while processing email: {str(e)}")
+    raise e
+</code></pre>
+<ol>
+<li>Update the configurations inside the CONFIG dictionary (lines 8–15) with your actual verified email address, custom domain, and S3 bucket name. Click Deploy.</li>
+</ol>
+<hr />
+<h2 id="step-7-create-the-ses-receipt-rule-group-with-tls-enforcement">Step 7: Create the SES Receipt Rule Group (With TLS Enforcement)</h2>
+<p>The final step glues your infrastructure components together while adding AWS IP filtering and TLS security.</p>
+<ol>
+<li>Navigate back to the Amazon SES console.</li>
+<li>In the left sidebar under Configuration, click Email Receiving.</li>
+<li>If no active rule sets exist, click Create Rule Set, name it main-rule-set, and save it. Click into it.</li>
+<li>Click Create Rule, name it forward-incoming-mail, and click Next.</li>
+<li>Recipient Conditions: Leave this blank to automatically forward every alias on your domain. Click Next.</li>
+<li>Drop Spam &amp; Require TLS (Crucial Layer): On the Configure options step:</li>
+<li>Check the box for Require TLS (rejects non-encrypted incoming spam vectors).<ul>
+<li>Check the box for Enable Spam and Virus Scanning. This tells AWS to evaluate the emails before sending them to your script. Click Next.</li>
+</ul>
+</li>
+<li>Add Actions: Add two actions in this exact order:</li>
+<li>Action 1: Select Deliver to S3 bucket. Choose the bucket you built in Step 5.<ul>
+<li>Action 2: Select Invoke Lambda function. Choose your SES-Email-Forwarder Python script.</li>
+</ul>
+</li>
+<li>Click Next, review the pipeline diagram, and click Create Rule.</li>
+<li>Ensure the root Rule Set status is toggled to Active.</li>
+</ol>
+<hr />
+<h2 id="complete-cohesive-data-architecture-flow">Complete Cohesive Data Architecture Flow</h2>
+<p>[External Sender] 
+       │
+       ▼ (DNS Lookup routes mail to your AWS Endpoint via MX)
+ [Amazon SES Inbound] 
+       │
+       ├──► [Security Filters]: Evaluates TLS, Scan Spam &amp; IP Reputation Repositories
+       │
+       ├──► [Action 1]: Writes raw object to ──► [Amazon S3 Storage Bucket]
+       │                                                 │
+       │                                                 └──► Native S3 Lifecycle Rule deletes file in 3 days
+       │
+       └──► [Action 2]: Triggers processing ───► [AWS Lambda (Python 3.12 Runtime)]
+                                                           │
+                                                           ▼
+                                            1. Inspects Amazon SES Verdict arrays
+                                            2. Wipes/Drops execution if Spam == FAIL
+                                            3. Swaps original From with "forwarder@yourdomain.com"
+                                            4. Preserves sender via "Reply-To" header
+                                                           │
+                                                           ▼
+                                                 [Amazon SES Outbound]
+                                                           │
+                                                           ▼ (Secure SMTP Delivery)
+                                                   [Personal Gmail / iCloud]</p>
+<h2 id="final-result-re-stated">✅ Final Result Re-stated</h2>
+<h2 id="your-enterprise-grade-serverless-email-forwarding-pipeline-is-fully-implemented-emails-sent-to-your-custom-route-53-domain-are-scanned-for-malware-and-spam-saved-temporarily-to-amazon-s3-and-processed-via-a-python-312-lambda-function-which-safely-rewrites-the-parameters-to-pass-modern-authentication-guidelines-before-delivering-the-email-directly-to-your-personal-gmail-or-icloud-account">Your enterprise-grade, serverless email forwarding pipeline is fully implemented. Emails sent to your custom Route 53 domain are scanned for malware and spam, saved temporarily to Amazon S3, and processed via a Python 3.12 Lambda function which safely rewrites the parameters to pass modern authentication guidelines before delivering the email directly to your personal Gmail or iCloud account.</h2>
 
 
 
