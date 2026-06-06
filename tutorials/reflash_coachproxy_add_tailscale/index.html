@@ -949,23 +949,21 @@ ssh -p &lt;port&gt; &lt;username&gt;@&lt;hostname-or-ip&gt;
 </code></pre>
 <p>When connecting for the first time you may be prompted to accept the host key fingerprint. Authenticate using your account password or your SSH key as configured on the Pi. Ensure you're on a trusted local network when entering credentials.</p>
 <h2 id="3-update-legacy-repositories-debian-buster">3. Update legacy repositories (Debian Buster)</h2>
-<p>If the system shows "No Release file" errors, point apt to the legacy archive servers.</p>
-<p>Update source lists:</p>
-<pre><code class="language-bash">sudo sed -i 's#raspbian.raspberrypi.org#legacy.raspbian.org#g' /etc/apt/sources.list
+<p>If the system shows "No Release file" errors, point apt to the legacy archive servers.
+Run this single pasteable block on the Pi (creates backups, applies edits, shows results, and updates apt). You can copy the entire block, paste it into a terminal, and press Enter to run it as one.</p>
+<pre><code class="language-bash">sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
+sudo cp /etc/apt/sources.list.d/raspi.list /etc/apt/sources.list.d/raspi.list.bak 2&gt;/dev/null || true
+sudo sed -i 's#raspbian.raspberrypi.org#legacy.raspbian.org#g' /etc/apt/sources.list
 sudo sed -i 's#archive.raspberrypi.org#archive.raspberrypi.org#g' /etc/apt/sources.list.d/raspi.list
-</code></pre>
-<p>Confirm the changes:</p>
-<pre><code class="language-bash">cat /etc/apt/sources.list
-cat /etc/apt/sources.list.d/raspi.list
-</code></pre>
-<p>Refresh the package index:</p>
-<pre><code class="language-bash">sudo apt update
+echo &quot;----- /etc/apt/sources.list -----&quot;
+sudo cat /etc/apt/sources.list
+echo &quot;----- /etc/apt/sources.list.d/raspi.list -----&quot;
+sudo cat /etc/apt/sources.list.d/raspi.list
+sudo apt update
 </code></pre>
 <h2 id="4-install-tailscale">4. Install Tailscale</h2>
-<p>Add the GPG key and repository, then install:</p>
-<pre><code class="language-bash">curl -fsSL https://tailscale.com | sudo apt-key add -
-curl -fsSL https://tailscale.com | sudo tee /etc/apt/sources.list.d/tailscale.list
-sudo apt update &amp;&amp; sudo apt install -y tailscale
+<p>Run the official Tailscale install script:</p>
+<pre><code class="language-bash">curl -fsSL https://tailscale.com/install.sh | sh
 </code></pre>
 <h2 id="5-authenticate-and-enable-ssh">5. Authenticate and enable SSH</h2>
 <p>Start Tailscale and authenticate the device:</p>
