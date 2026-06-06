@@ -43,10 +43,10 @@ To force internet traffic to route emails sent to your domain over to Amazon SES
    1. Open the Route 53 console and click on Hosted Zones.
    2. Click your custom domain name from the list.
    3. Click Create Record and configure these settings:
-   * Record Name: Leave blank (matches the root domain).
-      * Record Type: Choose MX.
-      * TTL: 300
-      * Value: 10 inbound-smtp.<YOUR-AWS-REGION>.amazonaws.com (Replace <YOUR-AWS-REGION> with your actual AWS region code, like us-east-1 for N. Virginia).
+        * Record Name: Leave blank (matches the root domain).
+        * Record Type: Choose MX.
+        * TTL: 300
+        * Value: 10 inbound-smtp.<YOUR-AWS-REGION>.amazonaws.com (Replace <YOUR-AWS-REGION> with your actual AWS region code, like us-east-1 for N. Virginia).
    4. Click Create Records.
 
 ------------------------------
@@ -58,25 +58,23 @@ SES must write incoming email payloads directly to an S3 bucket before processin
    3. Click into your new bucket, select the Permissions tab, find Bucket Policy, and click Edit.
    4. Paste the following JSON policy block to allow the SES service to write files here. Replace YOUR_ACCOUNT_ID and YOUR_BUCKET_NAME with your actual info:
 
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
         {
             "Sid": "AllowSESPut",
             "Effect": "Allow",
-            "Principal": {
-                "Service": "://amazonaws.com"
-            },
+            "Principal": { "Service": "ses.amazonaws.com" },
             "Action": "s3:PutObject",
             "Resource": "arn:aws:s3:::YOUR_BUCKET_NAME/*",
             "Condition": {
-                "StringEquals": {
-                    "aws:Referer": "YOUR_ACCOUNT_ID"
-                }
+                "StringEquals": { "aws:Referer": "YOUR_ACCOUNT_ID" }
             }
         }
     ]
 }
+```
 
 
    1. Click Save Changes.
@@ -97,109 +95,128 @@ This updated script intercepts the email and evaluates its Spam, Virus, SPF, DKI
    3. Expand Change default execution role, choose Create a new role with basic Lambda permissions, and click Create function.
    4. Once loaded, go to the Configuration tab, click Permissions, and click the blue link under Role Name to open the IAM role in a new tab.
    5. Click Add Permissions -> Attach Policies. Search for and check the boxes next to AmazonS3FullAccess and AmazonSESFullAccess. Click Add Permissions, then close that IAM tab.
-   6. Return to your Lambda window, select the Code tab, double-click lambda_function.py in the file explorer, erase everything, and paste the following Python script:
+   6. Return to your Lambda window, select the Code tab, double-click `lambda_function.py` in the file explorer, erase everything, and paste the function below.
 
-import osimport boto3import emailfrom email.mime.multipart import MIMEMultipartfrom email.mime.text import MIMEText
-# --- CONFIGURATION MANAGEMENT ---CONFIG = {
-    "from_email": "forwarder@yourdomain.com",       # Must be a verified identity in SES
-    "bucket_name": "your-ses-email-storage-bucket", # S3 bucket name holding the emails
+### Configuration
+
+Update these values before deploying — this YAML shows the same keys used by the function's `CONFIG` dictionary:
+
+```yaml
+from_email: forwarder@yourdomain.com
+bucket_name: your-ses-email-storage-bucket
+forward_mapping:
+  "@yourdomain.com":
+    - yourpersonal@gmail.com
+block_spam: true
+block_viruses: true
+strict_dmarc: false
+```
+
+Paste this complete, formatted Python function into `lambda_function.py`:
+
+```python
+import os
+import boto3
+import email
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+
+# --- CONFIGURATION MANAGEMENT ---
+CONFIG = {
+    "from_email": "forwarder@yourdomain.com",
+    "bucket_name": "your-ses-email-storage-bucket",
     "forward_mapping": {
-        "@yourdomain.com": ["yourpersonal@gmail.com"] # Catch-all routing map (Domain to Inbox)
+        "@yourdomain.com": ["yourpersonal@gmail.com"]
     },
-    "block_spam": True,      # Drop emails flagged as SPAM by AWS SES
-    "block_viruses": True,   # Drop emails flagged as containing VIRUSES
-    "strict_dmarc": False    # Set True to drop strict SPF/DKIM/DMARC failures
+    "block_spam": True,
+    "block_viruses": True,
+    "strict_dmarc": False
 }
-s3_client = boto3.client("s3")ses_client = boto3.client("ses")
+
+s3_client = boto3.client("s3")
+ses_client = boto3.client("ses")
+
 def lambda_handler(event, context):
     ses_record = event["Records"][0]["ses"]
     message_id = ses_record["mail"]["messageId"]
     original_recipients = ses_record["receipt"]["recipients"]
     receipt = ses_record["receipt"]
-    
+
     print(f"Processing inbound email ID: {message_id}")
-    
+
     # --- SPAM & VIRUS FILTERING ENGINE ---
     spam_verdict = receipt.get("spamVerdict", {}).get("status", "FAIL")
     virus_verdict = receipt.get("virusVerdict", {}).get("status", "FAIL")
     spf_verdict = receipt.get("spfVerdict", {}).get("status", "FAIL")
     dkim_verdict = receipt.get("dkimVerdict", {}).get("status", "FAIL")
     dmarc_verdict = receipt.get("dmarcVerdict", {}).get("status", "FAIL")
-    
-    print(f"Verdicts - Spam: {spam_verdict}, Virus: {virus_verdict}, SPF: {spf_verdict}, DKIM: {dkim_verdict}, DMARC: {dmarc_verdict}")
-    
+
+    print(
+        f"Verdicts - Spam: {spam_verdict}, Virus: {virus_verdict}, SPF: {spf_verdict}, DKIM: {dkim_verdict}, DMARC: {dmarc_verdict}"
+    )
+
     if CONFIG["block_spam"] and spam_verdict == "FAIL":
         print(f"Aborting Pipeline: Email ID {message_id} flagged as SPAM.")
         return {"status": "blocked", "reason": "Spam verdict failed"}
-        
+
     if CONFIG["block_viruses"] and virus_verdict == "FAIL":
         print(f"Aborting Pipeline: Email ID {message_id} flagged containing a VIRUS.")
         return {"status": "blocked", "reason": "Virus verdict failed"}
-        
-    if CONFIG["strict_dmarc"] and (spf_verdict == "FAIL" or dkim_verdict == "FAIL" or dmarc_verdict == "FAIL"):
+
+    if CONFIG["strict_dmarc"] and (
+        spf_verdict == "FAIL" or dkim_verdict == "FAIL" or dmarc_verdict == "FAIL"
+    ):
         print(f"Aborting Pipeline: Email ID {message_id} failed domain authentication check.")
         return {"status": "blocked", "reason": "DMARC/SPF verification failed"}
 
     try:
-        # 1. Fetch the raw email payload from Amazon S3
         s3_object = s3_client.get_object(Bucket=CONFIG["bucket_name"], Key=message_id)
         raw_email_bytes = s3_object["Body"].read()
-        
-        # 2. Parse the raw email bytes into an editable email Object
+
         msg = email.message_from_bytes(raw_email_bytes)
-        
-        # 3. Determine the target destinations based on mapping rules
+
         target_destinations = []
         for recipient in original_recipients:
             recipient_lower = recipient.lower()
             if recipient_lower in CONFIG["forward_mapping"]:
                 target_destinations.extend(CONFIG["forward_mapping"][recipient_lower])
             else:
-                domain_match = recipient_lower[recipient_lower.index("@"):]
-                if domain_match in CONFIG["forward_mapping"]:
-                    target_destinations.extend(CONFIG["forward_mapping"][domain_match])
-        
+                if "@" in recipient_lower:
+                    domain_match = recipient_lower[recipient_lower.index("@"):]
+                    if domain_match in CONFIG["forward_mapping"]:
+                        target_destinations.extend(CONFIG["forward_mapping"][domain_match])
+
         if not target_destinations:
             print(f"No valid forwarding mapping found for recipients: {original_recipients}")
             return {"status": "skipped", "reason": "No mapping matched"}
-            
-        # 4. Sanitize and rewrite headers to ensure 100% SPF/DMARC delivery
+
         original_from = msg.get("From", "Unknown Sender")
-        
-        # Remove original security seals that will conflict with our new transport route
-        del msg["Return-Path"]
-        del msg["Sender"]
-        del msg["DKIM-Signature"]
-        
-        # Set Reply-To to the original sender so clicking "Reply" goes to the right person
-        del msg["Reply-To"]
+
+        for header in ["Return-Path", "Sender", "DKIM-Signature", "Reply-To", "From"]:
+            if header in msg:
+                del msg[header]
+
         msg["Reply-To"] = original_from
-        
-        # Clean and replace the From header to route through your verified domain
-        clean_display_name = original_from.split("<")[0].strip().replace('"', '')
-        del msg["From"]
+        clean_display_name = original_from.split("<")[0].strip().replace('"', "")
         msg["From"] = f'"{clean_display_name} via Forwarder" <{CONFIG["from_email"]}>'
-        
-        # Add spam scanning headers for downstream client transparency
+
         msg["X-SES-Spam-Verdict"] = spam_verdict
         msg["X-SES-Virus-Verdict"] = virus_verdict
-        
-        # 5. Route the modified raw string out via Amazon SES
+
         response = ses_client.send_raw_email(
-            Source=CONFIG["from_email"],
-            Destinations=target_destinations,
-            RawMessage={"Data": msg.as_bytes()}
+            Source=CONFIG["from_email"], Destinations=target_destinations, RawMessage={"Data": msg.as_bytes()}
         )
-        
-        print(f"Email successfully forwarded. SES Message ID: {response['MessageId']}")
+
+        print(f"Email successfully forwarded. SES Message ID: {response.get('MessageId')}")
         return {"status": "success"}
-        
+
     except Exception as e:
         print(f"Pipeline failure while processing email: {str(e)}")
-        raise e
+        raise
 
+```
 
-   1. Update the configurations inside the CONFIG dictionary (lines 8–15) with your actual verified email address, custom domain, and S3 bucket name. Click Deploy.
+   1. Update the configurations above with your verified email address, custom domain, and S3 bucket name. Click Deploy.
 
 ------------------------------
 ## Step 7: Create the SES Receipt Rule Group (With TLS Enforcement)
@@ -222,33 +239,44 @@ The final step glues your infrastructure components together while adding AWS IP
 ------------------------------
 ## Complete Cohesive Data Architecture Flow
 
-[External Sender] 
-       │
-       ▼ (DNS Lookup routes mail to your AWS Endpoint via MX)
- [Amazon SES Inbound] 
-       │
-       ├──► [Security Filters]: Evaluates TLS, Scan Spam & IP Reputation Repositories
-       │
-       ├──► [Action 1]: Writes raw object to ──► [Amazon S3 Storage Bucket]
-       │                                                 │
-       │                                                 └──► Native S3 Lifecycle Rule deletes file in 3 days
-       │
-       └──► [Action 2]: Triggers processing ───► [AWS Lambda (Python 3.12 Runtime)]
-                                                           │
-                                                           ▼
-                                            1. Inspects Amazon SES Verdict arrays
-                                            2. Wipes/Drops execution if Spam == FAIL
-                                            3. Swaps original From with "forwarder@yourdomain.com"
-                                            4. Preserves sender via "Reply-To" header
-                                                           │
-                                                           ▼
-                                                 [Amazon SES Outbound]
-                                                           │
-                                                           ▼ (Secure SMTP Delivery)
-                                                   [Personal Gmail / iCloud]
+```text
++---------------------+          +--------------------+
+|   External Sender   | --MX-->  |   Amazon SES       |
+|                     |          |      Inbound       |
++---------------------+          +--------------------+
+                                     /          \
+                                    v            v
+                          +----------------+  +---------------------------+
+                          |   Security     |  |   S3 (raw email storage)  |
+                          | Filters (TLS,  |  |  (lifecycle rule => 3d)   |
+                          | Spam, IP rep.) |  +---------------------------+
+                          +----------------+           |
+                                   |                    v
+                                   |                +---------------+
+                                   v                |   AWS Lambda  |
+                               +--------+           |  (Python 3.12) |
+                               |  SES   | <---------+---------------+
+                               | Action |                    |
+                               +--------+                    v
+                                                         +--------------------+
+                                                         | Amazon SES Outbound|
+                                                         +--------------------+
+                                                                  |
+                                                                  v
+                                                          +------------------+
+                                                          | Personal Inbox   |
+                                                          | (Gmail / iCloud) |
+                                                          +------------------+
+```
+
+**Notes:**
+- **S3 lifecycle:** Configure a lifecycle rule to expire raw email objects (example: 3 days).
+- **Order:** SES should write to S3 before invoking the Lambda so the raw payload is available for inspection and replay.
+- **Security:** Require TLS on the receipt rule and enable SES spam/virus scanning to reduce false forwards.
 
 ## ✅ Final Result Re-stated
-Your enterprise-grade, serverless email forwarding pipeline is fully implemented. Emails sent to your custom Route 53 domain are scanned for malware and spam, saved temporarily to Amazon S3, and processed via a Python 3.12 Lambda function which safely rewrites the parameters to pass modern authentication guidelines before delivering the email directly to your personal Gmail or iCloud account.
+
+Your enterprise-grade, serverless email forwarding pipeline is fully implemented: incoming mail routes to Amazon SES, is evaluated and stored in S3, processed by a Python Lambda that enforces spam/virus checks and rewrites headers, then is sent outbound via SES to your personal inbox.
 ------------------------------
 
 
