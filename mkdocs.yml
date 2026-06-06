@@ -44,6 +44,6 @@ nav:
       - Shutdown CoachProxy: tutorials/shutdown_coachproxy.md
       - Node-RED: tutorials/node-red.md
       - AWS Email Service: tutorials/aws_email_setup.md
-      - AWS SES Redirect: tutorials/aws_ses_redirect.md
+      - AWS SES Redirect: tutorials/aws_ses_setup.md
       
   - About Me: about.md
