@@ -33,35 +33,25 @@ When connecting for the first time you may be prompted to accept the host key fi
 ## 3. Update legacy repositories (Debian Buster)
 
 If the system shows "No Release file" errors, point apt to the legacy archive servers.
-
-Update source lists:
+Run this single pasteable block on the Pi (creates backups, applies edits, shows results, and updates apt). You can copy the entire block, paste it into a terminal, and press Enter to run it as one.
 
 ```bash
+sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
+sudo cp /etc/apt/sources.list.d/raspi.list /etc/apt/sources.list.d/raspi.list.bak 2>/dev/null || true
 sudo sed -i 's#raspbian.raspberrypi.org#legacy.raspbian.org#g' /etc/apt/sources.list
 sudo sed -i 's#archive.raspberrypi.org#archive.raspberrypi.org#g' /etc/apt/sources.list.d/raspi.list
-```
-
-Confirm the changes:
-
-```bash
-cat /etc/apt/sources.list
-cat /etc/apt/sources.list.d/raspi.list
-```
-
-Refresh the package index:
-
-```bash
+echo "----- /etc/apt/sources.list -----"
+sudo cat /etc/apt/sources.list
+echo "----- /etc/apt/sources.list.d/raspi.list -----"
+sudo cat /etc/apt/sources.list.d/raspi.list
 sudo apt update
 ```
 
 ## 4. Install Tailscale
-
-Add the GPG key and repository, then install:
+Run the official Tailscale install script:
 
 ```bash
-curl -fsSL https://tailscale.com | sudo apt-key add -
-curl -fsSL https://tailscale.com | sudo tee /etc/apt/sources.list.d/tailscale.list
-sudo apt update && sudo apt install -y tailscale
+curl -fsSL https://tailscale.com/install.sh | sh
 ```
 
 ## 5. Authenticate and enable SSH
