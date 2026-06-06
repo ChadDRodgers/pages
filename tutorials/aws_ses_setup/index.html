@@ -11,6 +11,10 @@
         <link rel="canonical" href="https://chaddrodgers.github.io/pages/tutorials/aws_ses_setup/">
       
       
+        <link rel="prev" href="../aws_email_setup/">
+      
+      
+        <link rel="next" href="../../about/">
       
       
         
@@ -21,7 +25,7 @@
     
     
       
-        <title>Aws ses setup - Chad Rodgers - Pages</title>
+        <title>AWS SES Redirect - Chad Rodgers - Pages</title>
       
     
     
@@ -110,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Aws ses setup
+              AWS SES Redirect
             
           </span>
         </div>
@@ -252,10 +256,12 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
+      <li class="md-tabs__item md-tabs__item--active">
         <a href="../creating_pi_image/" class="md-tabs__link">
           
   
@@ -454,24 +460,29 @@
       
   
   
+    
   
   
+  
     
     
     
     
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
@@ -489,7 +500,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -644,10 +655,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../aws_ses_redirect.md" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AWS SES Redirect
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -663,6 +699,151 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-purchase-your-domain-via-route-53" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Purchase Your Domain via Route 53
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-verify-your-identities-in-amazon-ses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Verify Your Identities in Amazon SES
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-request-ses-production-access-move-out-of-sandbox" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Request SES Production Access (Move out of Sandbox)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-configure-domain-mx-records" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Configure Domain MX Records
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-create-an-s3-storage-bucket-with-an-automated-purge-rule" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Create an S3 Storage Bucket with an Automated Purge Rule
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-6-deploy-the-smart-python-lambda-forwarder-with-spam-scanning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6: Deploy the Smart Python Lambda Forwarder (With Spam Scanning)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-configuration-management-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --- CONFIGURATION MANAGEMENT ---CONFIG = {
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="--- CONFIGURATION MANAGEMENT ---CONFIG = {">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-7-create-the-ses-receipt-rule-group-with-tls-enforcement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 7: Create the SES Receipt Rule Group (With TLS Enforcement)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#complete-cohesive-data-architecture-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Complete Cohesive Data Architecture Flow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#final-result-re-stated" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✅ Final Result Re-stated
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#your-enterprise-grade-serverless-email-forwarding-pipeline-is-fully-implemented-emails-sent-to-your-custom-route-53-domain-are-scanned-for-malware-and-spam-saved-temporarily-to-amazon-s3-and-processed-via-a-python-312-lambda-function-which-safely-rewrites-the-parameters-to-pass-modern-authentication-guidelines-before-delivering-the-email-directly-to-your-personal-gmail-or-icloud-account" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Your enterprise-grade, serverless email forwarding pipeline is fully implemented. Emails sent to your custom Route 53 domain are scanned for malware and spam, saved temporarily to Amazon S3, and processed via a Python 3.12 Lambda function which safely rewrites the parameters to pass modern authentication guidelines before delivering the email directly to your personal Gmail or iCloud account.
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
