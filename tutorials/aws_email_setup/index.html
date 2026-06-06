@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://chaddrodgers.github.io/pages/tutorials/creating_pi_image/">
+        <link rel="canonical" href="https://chaddrodgers.github.io/pages/tutorials/aws_email_setup/">
       
       
-        <link rel="prev" href="../../articles/ideas/">
+        <link rel="prev" href="../node-red/">
       
       
-        <link rel="next" href="../reflash_coachproxy_add_tailscale/">
+        <link rel="next" href="../../about/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>Creating Pi Image - Chad Rodgers - Pages</title>
+        <title>AWS Email Service - Chad Rodgers - Pages</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#creating-a-pi-master-image-macos" class="md-skip">
+        <a href="#step-1-create-and-secure-your-aws-account" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Creating Pi Image
+              AWS Email Service
             
           </span>
         </div>
@@ -262,7 +262,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
+        <a href="../creating_pi_image/" class="md-tabs__link">
           
   
   
@@ -515,37 +515,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Creating Pi Image
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../creating_pi_image/" class="md-nav__link">
         
   
   
@@ -561,103 +534,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#recommended-applepibaker-gui" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Recommended: ApplePi‑Baker (GUI)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#native-macos-method-terminal-dd" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Native macOS method (Terminal — dd)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#alternative-disk-utility" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Alternative: Disk Utility
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#restoring-the-image-to-a-new-drive" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Restoring the image to a new drive
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tailscale-and-identity-considerations" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Tailscale and identity considerations
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#verification" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Verification
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#safety-tips" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Safety tips
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -751,10 +627,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../aws_email_setup/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AWS Email Service
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -770,6 +671,140 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-create-and-secure-your-aws-account" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Create and Secure Your AWS Account
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-register-a-custom-domain-via-amazon-route-53-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Register a Custom Domain via Amazon Route 53 [1]
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-spin-up-a-lightsail-server-and-open-firewall-ports" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Spin Up a Lightsail Server and Open Firewall Ports
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-install-mail-in-a-box" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Install Mail-in-a-Box
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-verify-your-domain-in-amazon-ses-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Verify Your Domain in Amazon SES [6]
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-6-map-domain-dns-records" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6: Map Domain DNS Records
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-7-configure-postfix-relay-and-exit-the-ses-sandbox" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 7: Configure Postfix Relay and Exit the SES Sandbox
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-8-create-mailboxes-and-sync-macos-mail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 8: Create Mailboxes and Sync macOS Mail
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-9-establish-free-aws-cost-alerts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 9: Establish Free AWS Cost Alerts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 9: Establish Free AWS Cost Alerts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reference
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -826,8 +861,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -836,10 +869,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#recommended-applepibaker-gui" class="md-nav__link">
+  <a href="#step-1-create-and-secure-your-aws-account" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Recommended: ApplePi‑Baker (GUI)
+        Step 1: Create and Secure Your AWS Account
       
     </span>
   </a>
@@ -847,10 +880,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#native-macos-method-terminal-dd" class="md-nav__link">
+  <a href="#step-2-register-a-custom-domain-via-amazon-route-53-1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Native macOS method (Terminal — dd)
+        Step 2: Register a Custom Domain via Amazon Route 53 [1]
       
     </span>
   </a>
@@ -858,10 +891,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#alternative-disk-utility" class="md-nav__link">
+  <a href="#step-3-spin-up-a-lightsail-server-and-open-firewall-ports" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Alternative: Disk Utility
+        Step 3: Spin Up a Lightsail Server and Open Firewall Ports
       
     </span>
   </a>
@@ -869,10 +902,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#restoring-the-image-to-a-new-drive" class="md-nav__link">
+  <a href="#step-4-install-mail-in-a-box" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Restoring the image to a new drive
+        Step 4: Install Mail-in-a-Box
       
     </span>
   </a>
@@ -880,10 +913,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#tailscale-and-identity-considerations" class="md-nav__link">
+  <a href="#step-5-verify-your-domain-in-amazon-ses-6" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Tailscale and identity considerations
+        Step 5: Verify Your Domain in Amazon SES [6]
       
     </span>
   </a>
@@ -891,10 +924,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#verification" class="md-nav__link">
+  <a href="#step-6-map-domain-dns-records" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Verification
+        Step 6: Map Domain DNS Records
       
     </span>
   </a>
@@ -902,13 +935,52 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#safety-tips" class="md-nav__link">
+  <a href="#step-7-configure-postfix-relay-and-exit-the-ses-sandbox" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Safety tips
+        Step 7: Configure Postfix Relay and Exit the SES Sandbox
       
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-8-create-mailboxes-and-sync-macos-mail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 8: Create Mailboxes and Sync macOS Mail
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-9-establish-free-aws-cost-alerts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 9: Establish Free AWS Cost Alerts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 9: Establish Free AWS Cost Alerts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reference
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -932,71 +1004,154 @@
   
 
 
-<h1 id="creating-a-pi-master-image-macos">Creating a Pi master image (macOS)</h1>
-<p>This guide shows several ways to create a master Raspberry Pi image on macOS for cloning or backups. Use caution — imaging tools can overwrite drives.</p>
-<h2 id="recommended-applepibaker-gui">Recommended: ApplePi‑Baker (GUI)</h2>
-<ul>
-<li>Download and install ApplePi‑Baker v2 (or similar Pi imaging utility).</li>
-<li>Insert the source microSD/SSD and open the app.</li>
-<li>Select the source drive and choose <strong>Create Backup</strong> to produce a <code>.img</code> (or compressed) copy.</li>
-<li>To restore, select the target drive and use <strong>Restore Backup</strong>, choosing the saved image file.</li>
-</ul>
-<p>ApplePi‑Baker provides a simple graphical workflow and verifies operations for you.</p>
-<h2 id="native-macos-method-terminal-dd">Native macOS method (Terminal — dd)</h2>
-<p>Warning: <code>dd</code> is powerful and destructive if given the wrong device. Double-check device IDs before running.</p>
-<ol>
-<li>Identify disks:</li>
-</ol>
-<pre><code class="language-bash">diskutil list
-</code></pre>
-<ol>
-<li>Unmount the source disk (replace <code>&lt;N&gt;</code> with the disk number, e.g. <code>2</code>):</li>
-</ol>
-<pre><code class="language-bash">diskutil unmountDisk /dev/disk&lt;N&gt;
-</code></pre>
-<ol>
-<li>Create the image (use <code>rdisk</code> for raw speed; replace <code>&lt;N&gt;</code>):</li>
-</ol>
-<pre><code class="language-bash">sudo dd if=/dev/rdisk&lt;N&gt; of=~/Desktop/CoachProxy_Master.img bs=1m status=progress
-</code></pre>
-<p>Notes:
-- <code>if=</code> is the source device (the Pi drive).
-- <code>of=</code> is the output file path where the image will be saved.
-- <code>bs=1m</code> sets a larger block size for faster transfers.</p>
-<h2 id="alternative-disk-utility">Alternative: Disk Utility</h2>
-<ul>
-<li>Open Disk Utility, select the device in the sidebar.</li>
-<li>Choose <strong>File → New Image → Image from [Device]</strong> and set format to <strong>DVD/CD master</strong> to capture all sectors.</li>
-</ul>
-<p>Disk Utility may produce <code>.dmg</code> files; convert if you need a raw <code>.img</code>.</p>
-<h2 id="restoring-the-image-to-a-new-drive">Restoring the image to a new drive</h2>
-<ul>
-<li>Using ApplePi‑Baker: choose the saved image and <strong>Restore</strong> to the target drive.</li>
-<li>Using <code>dd</code> (reverse <code>if</code>/<code>of</code>):</li>
-</ul>
-<pre><code class="language-bash">sudo dd if=~/Desktop/CoachProxy_Master.img of=/dev/rdisk&lt;TARGET_N&gt; bs=1m status=progress
-</code></pre>
-<h2 id="tailscale-and-identity-considerations">Tailscale and identity considerations</h2>
-<p>When cloning a device that has Tailscale configured, clear the old device identity on the first boot of the restored system to avoid duplicate nodes:</p>
-<pre><code class="language-bash">sudo tailscale logout
-</code></pre>
-<p>Also consider changing the hostname and SSH keys on the cloned device to avoid conflicts:</p>
-<pre><code class="language-bash"># Change hostname (example)
-sudo hostnamectl set-hostname &lt;new-hostname&gt;
+  <h1>AWS Email Service</h1>
 
-# Regenerate SSH host keys (Debian-based example)
-sudo rm /etc/ssh/ssh_host_* &amp;&amp; sudo dpkg-reconfigure openssh-server
-</code></pre>
-<h2 id="verification">Verification</h2>
-<ul>
-<li>Mount the image or boot the device and confirm system services start as expected.</li>
-<li>Verify network and Tailscale connectivity after re-authenticating.</li>
+<p>AI Generated Tutorial</p>
+<p>Master blueprint to configure a completely private, personal email service using AWS and Mail-in-a-Box.</p>
+<p>This architecture balances data privacy with cost-efficiency: incoming email storage and IMAP access are handled on an isolated Amazon Lightsail virtual server for a flat $5.00/month, while outgoing mail is securely offloaded to Amazon SES to bypass residential IP blocks and guarantee high delivery rates.</p>
+<hr />
+<h2 id="step-1-create-and-secure-your-aws-account">Step 1: Create and Secure Your AWS Account</h2>
+<ol>
+<li>Navigate to the AWS Signup Page and register your personal account.</li>
+<li>Log into the AWS Console using your new Root User credentials.</li>
+<li>Search for IAM (Identity and Access Management) in the top search bar.</li>
+<li>Create an IAM Admin User for daily operations to ensure you avoid logging in as the root user.</li>
+<li>Enable Multi-Factor Authentication (MFA) on both your Root and IAM user accounts to keep your billing profile secure.</li>
+</ol>
+<hr />
+<h2 id="step-2-register-a-custom-domain-via-amazon-route-53-1">Step 2: Register a Custom Domain via Amazon Route 53 [1]</h2>
+<p>To use a custom email identity, you must own the domain. Registering directly inside AWS seamlessly auto-generates the necessary hosted routing zones. [2] </p>
+<ol>
+<li>Search for Route 53 in the AWS console search bar and open the dashboard.</li>
+<li>Click Registered domains in the left sidebar and choose Register domain.</li>
+<li>Enter your desired personal domain name, select an extension (like .com), and click Check to verify availability.</li>
+<li>Click Add to cart next to your choice and click Continue.</li>
+<li>Provide your contact details. Ensure Privacy Protection is enabled (this keeps your identity hidden from public WHOIS marketing databases at no extra charge).</li>
+<li>Agree to the terms and click Complete order. Registration usually processes within a few minutes. [1, 3, 4] </li>
+</ol>
+<hr />
+<h2 id="step-3-spin-up-a-lightsail-server-and-open-firewall-ports">Step 3: Spin Up a Lightsail Server and Open Firewall Ports</h2>
+<ol>
+<li>Open the Amazon Lightsail Console.</li>
+<li>Click Create instance, select Linux/Unix, and click OS Only.</li>
+<li>Choose Ubuntu 22.04 LTS as the operating system.</li>
+<li>Select the entry-level plan (roughly $5.00/month, which features a public IPv4 address, 512 MB RAM, and a generous 1 TB data transfer limit).</li>
+<li>Name your instance (e.g., PersonalMailServer) and click Create instance.</li>
+<li>Navigate to the Networking tab inside your instance settings, click Create static IP, and attach it to your instance. Write down this IP address.</li>
+<li>Under the IPv4 Firewall rules on that same Networking tab, add custom rules to open these mandatory traffic ports:</li>
+<li>TCP 143 &amp; 993 (Standard IMAP and Secure IMAP)<ul>
+<li>TCP 25 (Incoming Mail traffic from other servers)</li>
+<li>TCP 80 &amp; 443 (For Webmail account management and automated Let's Encrypt SSL security certificates)</li>
 </ul>
-<h2 id="safety-tips">Safety tips</h2>
+</li>
+</ol>
+<hr />
+<h2 id="step-4-install-mail-in-a-box">Step 4: Install Mail-in-a-Box</h2>
+<ol>
+<li>In the Lightsail dashboard card for your instance, click the Connect using SSH button to open a terminal browser window. [1] </li>
+<li>Run system package updates:</li>
+</ol>
+<p>sudo apt-get update &amp;&amp; sudo apt-get upgrade -y</p>
+<ol>
+<li>Execute the automated Mail-in-a-Box infrastructure script:</li>
+</ol>
+<p>curl -s https://mailinabox.email | sudo bash</p>
+<p>[5] 
+   4. Follow the interactive installer prompts:
+   * Provide your primary admin email address (e.g., me@yourdomain.com).
+      * Set your server's system hostname to ://yourdomain.com.
+      * Create a strong administrative password to lock down your future mail management panel.</p>
+<hr />
+<h2 id="step-5-verify-your-domain-in-amazon-ses-6">Step 5: Verify Your Domain in Amazon SES [6]</h2>
+<ol>
+<li>Open the <a href="https://console.aws.amazon.com/ses">Amazon SES Console</a> and select Identities under the Configuration sidebar menu. [7] </li>
+<li>Click Create identity, choose Domain, and type in your newly purchased root domain (e.g., yourdomain.com). [7, 8] </li>
+<li>Check the box for Easy DKIM and hit Create identity. [6, 7] </li>
+<li>AWS will display a set of CNAME records. Leave this tab open. [6] </li>
+<li>In an alternate tab, open your Route 53 Hosted Zone for your domain. Click Create record, copy the SES CNAME names and values, and paste them as new records. This tells AWS you authorize email delivery. [6] </li>
+<li>Return to the SES left sidebar, click SMTP Settings, and write down your region's unique SMTP Endpoint (e.g., email-smtp.us-east-1.amazonaws.com).</li>
+<li>Click Create SMTP credentials, accept the profile defaults, click create, and Download Credentials. Store this CSV file safely; these are your internal server-to-SES relay passwords.</li>
+</ol>
+<hr />
+<h2 id="step-6-map-domain-dns-records">Step 6: Map Domain DNS Records</h2>
+<p>Go to your Route 53 Hosted Zone dashboard for your domain. Create the final records pointing your web identity to your server infrastructure: [4] </p>
+<ol>
+<li>A Record: Name/Subdomain: box | Value: [Your Lightsail Static IP]</li>
+<li>MX Record: Name/Subdomain: @ (or blank) | Value: 10 ://yourdomain.com</li>
+<li>TXT Record (SPF Security): Name/Subdomain: @ | Value: v=spf1 include:amazonses.com ~all</li>
+<li>TXT Record (DMARC Protection): Name/Subdomain: _dmarc | Value: v=DMARC1; p=none; rua=mailto:dmarc-reports@yourdomain.com</li>
+</ol>
+<hr />
+<h2 id="step-7-configure-postfix-relay-and-exit-the-ses-sandbox">Step 7: Configure Postfix Relay and Exit the SES Sandbox</h2>
+<p>To bypass the AWS outbound port restrictions, your server must securely push outbound mail to SES via port 587.</p>
+<ol>
+<li>Back in your Lightsail SSH terminal window, open the Postfix mail configuration engine:</li>
+</ol>
+<p>sudo nano /etc/postfix/main.cf</p>
+<ol>
+<li>Scroll to the absolute bottom of the file and paste these relay rules:</li>
+</ol>
+<p>relayhost = [email-smtp.us-east-1.amazonaws.com]:587
+   smtp_sasl_auth_enable = yes
+   smtp_sasl_security_options = noanonymous
+   smtp_sasl_password_maps = hash:/etc/postfix/sasl_passwd
+   smtp_use_tls = yes
+   smtp_tls_security_level = encrypt
+   smtp_tls_note_starttls_offer = yes</p>
+<ol>
+<li>Save and close the editor (Ctrl+O, Enter, Ctrl+X), then construct the password credential file:</li>
+</ol>
+<p>sudo nano /etc/postfix/sasl_passwd</p>
+<ol>
+<li>Map your SES endpoint to the downloaded SMTP keys using this format:</li>
+</ol>
+<p>[email-smtp.us-east-1.amazonaws.com]:587 YOUR_SES_SMTP_USERNAME:YOUR_SES_SMTP_PASSWORD</p>
+<ol>
+<li>Save, close, restrict directory read privileges, and apply the new configuration database:</li>
+</ol>
+<p>sudo chmod 0600 /etc/postfix/sasl_passwd
+   sudo postmap /etc/postfix/sasl_passwd
+   sudo systemctl restart postfix</p>
+<ol>
+<li>Navigate to your Amazon SES Dashboard. Click the Request production access link pinned inside the sandbox warning banner. State clearly that you are running a single-user private mailbox on an isolated server and submit the request to remove regional sending restrictions. [6] </li>
+</ol>
+<hr />
+<h2 id="step-8-create-mailboxes-and-sync-macos-mail">Step 8: Create Mailboxes and Sync macOS Mail</h2>
+<p>Your private cloud network is now fully live. You can add infinite unique addresses or throwaway tracking aliases for no extra charge.</p>
+<ol>
+<li>Open your web browser and go to https://yourdomain.com. Log in using your Step 4 admin password. [5] </li>
+<li>To create separate standalone mailboxes: Navigate to Mail &gt; Users and click Add User.</li>
+<li>To generate privacy-tracking aliases: Navigate to Mail &gt; Aliases and click Add Alias. You can map shadow addresses (like banking@yourdomain.com) to dump silently into your main inbox without giving away your real handle.</li>
+<li>Launch the native Mail app on your macOS computer.</li>
+<li>Select Mail &gt; Add Account &gt; Other Mail Account... [1] </li>
+<li>Type your name, your custom email identity, and your Mail-in-a-Box account password.</li>
+<li>Fill out the manual settings when prompted:</li>
+<li>Account Type: IMAP<ul>
+<li>Incoming Mail Server: ://yourdomain.com</li>
+<li>Outgoing Mail Server: ://yourdomain.com (Your server intercepts this request and hands it to Amazon SES automatically behind the scenes).</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h2 id="step-9-establish-free-aws-cost-alerts">Step 9: Establish Free AWS Cost Alerts</h2>
+<ol>
+<li>Search for Billing in your main AWS console top search bar.</li>
+<li>Select Budgets from the left navigation panel and click Create budget.</li>
+<li>Choose the Fixed Cost Budget template option.</li>
+<li>Define your monthly cost spending threshold as $6.00.</li>
+<li>Add your personal phone number or personal backup email address under the alert notification form. AWS will ping you immediately if your server ever generates an anomalous data fee.</li>
+</ol>
+<hr />
+<h3 id="reference">Reference</h3>
 <ul>
-<li>Always confirm device IDs with <code>diskutil list</code> before running destructive commands.</li>
-<li>Keep at least one verified backup copy off the device you are imaging.</li>
-<li>Inspect downloaded tools (like ApplePi‑Baker) from their official sources.</li>
+<li>[1] <a href="https://www.youtube.com/watch?v=5IfDzpkLlYY">https://www.youtube.com</a></li>
+<li>[2] <a href="https://docs.aws.amazon.com/hands-on/latest/get-a-domain/get-a-domain.html">https://docs.aws.amazon.com</a></li>
+<li>[3] <a href="https://docs.aws.amazon.com/hands-on/latest/get-a-domain/get-a-domain.html">https://docs.aws.amazon.com</a></li>
+<li>[4] <a href="https://www.youtube.com/watch?v=nEi6Rb5XupA&amp;vl=en">https://www.youtube.com</a></li>
+<li>[5] <a href="https://mailinabox.email/guide.html">https://mailinabox.email</a></li>
+<li>[6] <a href="https://aws.amazon.com/blogs/opensource/fully-automated-deployment-of-an-open-source-mail-server-on-aws/">https://aws.amazon.com</a></li>
+<li>[7] <a href="https://www.replyup.com/blog/amazon-ses-tutorial/">https://www.replyup.com</a></li>
+<li>[8] <a href="https://docs.aws.amazon.com/hands-on/latest/send-an-email-with-amazon-ses/send-an-email-with-amazon-ses.html">https://docs.aws.amazon.com</a></li>
 </ul>
 
 
