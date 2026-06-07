@@ -2,42 +2,46 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://chaddrodgers.github.io/pages/</loc>
-         <lastmod>2026-06-06</lastmod>
+         <lastmod>2026-06-07</lastmod>
     </url>
     <url>
          <loc>https://chaddrodgers.github.io/pages/about/</loc>
-         <lastmod>2026-06-06</lastmod>
+         <lastmod>2026-06-07</lastmod>
     </url>
     <url>
          <loc>https://chaddrodgers.github.io/pages/articles/ideas/</loc>
-         <lastmod>2026-06-06</lastmod>
+         <lastmod>2026-06-07</lastmod>
     </url>
     <url>
          <loc>https://chaddrodgers.github.io/pages/tutorials/</loc>
-         <lastmod>2026-06-06</lastmod>
+         <lastmod>2026-06-07</lastmod>
     </url>
     <url>
          <loc>https://chaddrodgers.github.io/pages/tutorials/aws_email_setup/</loc>
-         <lastmod>2026-06-06</lastmod>
+         <lastmod>2026-06-07</lastmod>
     </url>
     <url>
          <loc>https://chaddrodgers.github.io/pages/tutorials/aws_ses_setup/</loc>
-         <lastmod>2026-06-06</lastmod>
+         <lastmod>2026-06-07</lastmod>
     </url>
     <url>
          <loc>https://chaddrodgers.github.io/pages/tutorials/creating_pi_image/</loc>
-         <lastmod>2026-06-06</lastmod>
+         <lastmod>2026-06-07</lastmod>
+    </url>
+    <url>
+         <loc>https://chaddrodgers.github.io/pages/tutorials/home_network/</loc>
+         <lastmod>2026-06-07</lastmod>
     </url>
     <url>
          <loc>https://chaddrodgers.github.io/pages/tutorials/node-red/</loc>
-         <lastmod>2026-06-06</lastmod>
+         <lastmod>2026-06-07</lastmod>
     </url>
     <url>
          <loc>https://chaddrodgers.github.io/pages/tutorials/reflash_coachproxy_add_tailscale/</loc>
-         <lastmod>2026-06-06</lastmod>
+         <lastmod>2026-06-07</lastmod>
     </url>
     <url>
          <loc>https://chaddrodgers.github.io/pages/tutorials/shutdown_coachproxy/</loc>
-         <lastmod>2026-06-06</lastmod>
+         <lastmod>2026-06-07</lastmod>
     </url>
 </urlset>
