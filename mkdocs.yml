@@ -45,6 +45,7 @@ nav:
       - Node-RED: tutorials/node-red.md
       - AWS Email Service: tutorials/aws_email_setup.md
       - AWS SES Redirect: tutorials/aws_ses_setup.md
+      - AWS Todo List: tutorials/aws_todo_app.md
       - Home Network Configuration: tutorials/home_network.md
 
   - About Me: about.md
