@@ -692,6 +692,8 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
@@ -734,34 +736,14 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#home-network-installation-documentation-guide" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Home Network Installation &amp; Documentation Guide
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#this-document-outlines-the-architecture-and-configuration-steps-for-your-home-network-it-allows-for-distant-fiber-router-by-using-a-single-long-ethernet-run-to-a-central-8-port-switch-which-handles-tvs-persistent-hardwired-devices-and-a-dedicated-secondary-mesh-wi-fi-network-for-iot-devices" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        This document outlines the architecture and configuration steps for your home network. It allows for distant fiber router by using a single long ethernet run to a central 8-port switch, which handles TVs, persistent hardwired devices, and a dedicated secondary mesh Wi-Fi network for IoT devices.
-      
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#network-architecture-diagram" class="md-nav__link">
@@ -819,10 +801,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-4-wire-the-mesh-satellites-hardwired-backhaul" class="md-nav__link">
+  <a href="#step-4-expand-and-wire-the-mesh-satellites-hardwired-backhaul" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 4: Wire the Mesh Satellites (Hardwired Backhaul)
+        Step 4: Expand and Wire the Mesh Satellites (Hardwired Backhaul)
       
     </span>
   </a>
@@ -900,34 +882,14 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#home-network-installation-documentation-guide" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Home Network Installation &amp; Documentation Guide
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#this-document-outlines-the-architecture-and-configuration-steps-for-your-home-network-it-allows-for-distant-fiber-router-by-using-a-single-long-ethernet-run-to-a-central-8-port-switch-which-handles-tvs-persistent-hardwired-devices-and-a-dedicated-secondary-mesh-wi-fi-network-for-iot-devices" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        This document outlines the architecture and configuration steps for your home network. It allows for distant fiber router by using a single long ethernet run to a central 8-port switch, which handles TVs, persistent hardwired devices, and a dedicated secondary mesh Wi-Fi network for IoT devices.
-      
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#network-architecture-diagram" class="md-nav__link">
@@ -985,10 +947,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-4-wire-the-mesh-satellites-hardwired-backhaul" class="md-nav__link">
+  <a href="#step-4-expand-and-wire-the-mesh-satellites-hardwired-backhaul" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 4: Wire the Mesh Satellites (Hardwired Backhaul)
+        Step 4: Expand and Wire the Mesh Satellites (Hardwired Backhaul)
       
     </span>
   </a>
@@ -1026,10 +988,9 @@
   
 
 
-  <h1>Home Network Configuration</h1>
-
-<h2 id="home-network-installation-documentation-guide">Home Network Installation &amp; Documentation Guide</h2>
-<h2 id="this-document-outlines-the-architecture-and-configuration-steps-for-your-home-network-it-allows-for-distant-fiber-router-by-using-a-single-long-ethernet-run-to-a-central-8-port-switch-which-handles-tvs-persistent-hardwired-devices-and-a-dedicated-secondary-mesh-wi-fi-network-for-iot-devices">This document outlines the architecture and configuration steps for your home network. It allows for distant fiber router by using a single long ethernet run to a central 8-port switch, which handles TVs, persistent hardwired devices, and a dedicated secondary mesh Wi-Fi network for IoT devices.</h2>
+<h1 id="home-network-installation-documentation-guide">Home Network Installation &amp; Documentation Guide</h1>
+<p>This document outlines the architecture and configuration steps for your home network. It allows for a distant fiber router by using a single long ethernet run to a central 8-port switch (for TVs and primary devices), and utilizes your existing 4+1 switch to expand the single output of your secondary mesh router for IoT. The Secondary mesh router could be used to extend the Fiber Provided Router (if desired).</p>
+<hr />
 <h2 id="network-architecture-diagram">Network Architecture Diagram</h2>
 <pre><code>              [ FIBER INTERNET ]
                       │
@@ -1047,10 +1008,13 @@
          ▼      ▼      ▼      ▼      ▼
       [TV 1] [TV 2] [Device] [Device] [ Mesh Router ] (Secondary SSID)
                                       └───────┬───────┘
-                                              │
-                                        ┌─────┴─────┐
-                                        │           │
-                                        ▼ (LAN)     ▼ (LAN)
+                                              │ (Single LAN Output)
+                                              ▼
+                                  ┌───────────────────────┐
+                                  │    4+1 Port Switch    │
+                                  └───────┬───────────┬───┘
+                                          │           │
+                                          ▼           ▼
                                      [Mesh Sat1] [Mesh Sat2]
 </code></pre>
 <hr />
@@ -1058,9 +1022,10 @@
 <ol>
 <li>Fiber Provider Router: (Existing) Located at the internet entry point.</li>
 <li>8-Port Gigabit Switch: (Required purchase) Positioned centrally near your media center/devices.</li>
+<li>4+1 Port Switch: (Existing) Positioned next to your Mesh Router.</li>
 <li>1x Long CAT5e/CAT6 Cable: To bridge the distance between the fiber router and the 8-port switch.</li>
-<li>Mesh Wi-Fi System: 1 Base Router and 2 Satellites supporting ethernet backhaul.</li>
-<li>Short CAT5e/CAT6 Patch Cables: To connect TVs, mesh nodes, and extra devices to the switches.</li>
+<li>Mesh Wi-Fi System: 1 Base Router (with 1 LAN port) and 2 Satellites supporting ethernet backhaul.</li>
+<li>Short CAT5e/CAT6 Patch Cables: To interconnect switches, TVs, and mesh nodes.</li>
 </ol>
 <hr />
 <h2 id="step-by-step-installation-instructions-step-1-establish-the-core-backbone">Step-by-Step Installation Instructions## Step 1: Establish the Core Backbone</h2>
@@ -1075,7 +1040,7 @@
 <li>Plug an ethernet cable from TV 1 into Port 2 of the 8-port switch.</li>
 <li>Plug an ethernet cable from TV 2 into Port 3 of the 8-port switch.</li>
 <li>Plug any other permanent hardwired devices (PCs, consoles, etc.) into Ports 4, 5, and 6.
-   Note: Because these devices pass directly through the switch to the fiber router, they will successfully live on the original network.</li>
+   Note: Because these devices pass directly through this switch to the fiber router, they successfully live on the original provider network.</li>
 </ol>
 <h2 id="step-3-connect-the-secondary-mesh-router">Step 3: Connect the Secondary Mesh Router</h2>
 <ol>
@@ -1083,18 +1048,18 @@
 <li>Plug an ethernet cable from its WAN / Internet port into Port 7 of the 8-port switch.</li>
 <li>Power on the Mesh Router and follow its mobile app setup to create your Secondary Wi-Fi SSID.</li>
 </ol>
-<h2 id="step-4-wire-the-mesh-satellites-hardwired-backhaul">Step 4: Wire the Mesh Satellites (Hardwired Backhaul)</h2>
+<h2 id="step-4-expand-and-wire-the-mesh-satellites-hardwired-backhaul">Step 4: Expand and Wire the Mesh Satellites (Hardwired Backhaul)</h2>
 <ol>
-<li>Locate the LAN ports on the back of your Main Mesh Router.</li>
-<li>Run an ethernet cable from Mesh Router LAN Port 1 directly to Mesh Satellite 1.</li>
-<li>Run an ethernet cable from Mesh Router LAN Port 2 directly to Mesh Satellite 2.
-   Warning: Do not plug the satellites into the 8-port switch. They must plug directly into the Main Mesh Router's LAN ports so they can communicate on the secondary network properly.</li>
+<li>Plug an ethernet cable into the single LAN output port on the back of your Main Mesh Router.</li>
+<li>Plug the other end of that cable into the +1 (Uplink) port (or Port 1) of your existing 4+1 Switch.</li>
+<li>Run an ethernet cable from an open port on the 4+1 switch directly to Mesh Satellite 1.</li>
+<li>Run an ethernet cable from another open port on the 4+1 switch directly to Mesh Satellite 2.</li>
 </ol>
 <hr />
 <h2 id="crucial-configuration-tips">Crucial Configuration Tips</h2>
 <ul>
-<li>Avoid IP Conflicts (Double NAT): Because you have two routers (the Fiber Router and the Mesh Router), your network might experience "Double NAT," which can interfere with online gaming or smart home devices. If you encounter issues, log into your Mesh system's app and switch its operating mode from Router Mode to AP (Access Point) Mode or Bridge Mode. This keeps your secondary SSID active while letting the fiber router safely handle all network traffic.</li>
-<li>Cable Selection: For the long run between the router and the switch, ensure you use at least CAT5e (supports up to 1 Gbps up to 328 feet) or CAT6 (better shielding against interference).</li>
+<li>Isolation of the Mesh Traffic: By placing the 4+1 switch after the Mesh Router, your hardwired satellites stay perfectly isolated inside the secondary network. Do not accidently plug the satellites into the 8-port switch, or the mesh system will fail to create a stable backhaul.</li>
+<li>Avoid IP Conflicts (Double NAT): Because you have two cascading routers, you may encounter "Double NAT" (which can disrupt gaming or smart home ecosystems). If you face connectivity issues, open your Mesh system's mobile app and toggle its operating mode from Router Mode to AP (Access Point) Mode or Bridge Mode. This leaves your secondary Wi-Fi network active while letting the main fiber router cleanly manage IP addresses for the whole house.</li>
 </ul>
 
 
