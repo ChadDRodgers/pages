@@ -11,6 +11,10 @@
         <link rel="canonical" href="https://chaddrodgers.github.io/pages/tutorials/home_network/">
       
       
+        <link rel="prev" href="../aws_ses_setup/">
+      
+      
+        <link rel="next" href="../../about/">
       
       
         
@@ -21,7 +25,7 @@
     
     
       
-        <title>Home network - Chad Rodgers - Pages</title>
+        <title>Home Network Configuration - Chad Rodgers - Pages</title>
       
     
     
@@ -110,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home network
+              Home Network Configuration
             
           </span>
         </div>
@@ -252,10 +256,12 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
+      <li class="md-tabs__item md-tabs__item--active">
         <a href="../creating_pi_image/" class="md-tabs__link">
           
   
@@ -454,24 +460,29 @@
       
   
   
+    
   
   
+  
     
     
     
     
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
@@ -489,7 +500,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -672,10 +683,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../network_configuration.md" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home Network Configuration
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -691,6 +727,123 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#home-network-installation-documentation-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Home Network Installation &amp; Documentation Guide
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#this-document-outlines-the-architecture-and-configuration-steps-for-your-home-network-it-allows-for-distant-fiber-router-by-using-a-single-long-ethernet-run-to-a-central-8-port-switch-which-handles-tvs-persistent-hardwired-devices-and-a-dedicated-secondary-mesh-wi-fi-network-for-iot-devices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        This document outlines the architecture and configuration steps for your home network. It allows for distant fiber router by using a single long ethernet run to a central 8-port switch, which handles TVs, persistent hardwired devices, and a dedicated secondary mesh Wi-Fi network for IoT devices.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#network-architecture-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Network Architecture Diagram
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bill-of-materials-hardware-needed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bill of Materials (Hardware Needed)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-by-step-installation-instructions-step-1-establish-the-core-backbone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step-by-Step Installation Instructions## Step 1: Establish the Core Backbone
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-connect-the-tvs-persistent-devices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Connect the TVs &amp; Persistent Devices
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-connect-the-secondary-mesh-router" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Connect the Secondary Mesh Router
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-wire-the-mesh-satellites-hardwired-backhaul" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Wire the Mesh Satellites (Hardwired Backhaul)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#crucial-configuration-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Crucial Configuration Tips
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -873,7 +1026,7 @@
   
 
 
-  <h1>Home network</h1>
+  <h1>Home Network Configuration</h1>
 
 <h2 id="home-network-installation-documentation-guide">Home Network Installation &amp; Documentation Guide</h2>
 <h2 id="this-document-outlines-the-architecture-and-configuration-steps-for-your-home-network-it-allows-for-distant-fiber-router-by-using-a-single-long-ethernet-run-to-a-central-8-port-switch-which-handles-tvs-persistent-hardwired-devices-and-a-dedicated-secondary-mesh-wi-fi-network-for-iot-devices">This document outlines the architecture and configuration steps for your home network. It allows for distant fiber router by using a single long ethernet run to a central 8-port switch, which handles TVs, persistent hardwired devices, and a dedicated secondary mesh Wi-Fi network for IoT devices.</h2>
