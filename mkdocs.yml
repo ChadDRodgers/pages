@@ -46,5 +46,6 @@ nav:
       - AWS Email Service: tutorials/aws_email_setup.md
       - AWS SES Redirect: tutorials/aws_ses_setup.md
       - Home Network Configuration: tutorials/home_network.md
+      - Test
       
   - About Me: about.md
