@@ -15,11 +15,11 @@ This document outlines the architecture and configuration steps for your home ne
            └──────────────┬───────────────┘
                           │
                           ▼ (Single Long CAT5e/CAT6 Cable)
-           ┌──────────────────────────────┐
-           │        8-Port Switch         │
-           └─┬──────┬──────┬──────┬──────┬┘
-             │      │      │      │      │
-             ▼      ▼      ▼      ▼      ▼
+           ┌─────────────────────────────────┐
+           │        8-Port Switch            │
+           └─┬──────┬──────┬──────┬─────────┬┘
+             │      │      │      │         │
+             ▼      ▼      ▼      ▼         ▼
           [TV 1] [TV 2] [Device] [Device] [ Mesh Router ] (Secondary SSID)
                                           └───────┬───────┘
                                                   │ (Single LAN Output)
