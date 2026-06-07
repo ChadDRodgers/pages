@@ -1,0 +1,1527 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://chaddrodgers.github.io/pages/tutorials/aws_todo_app/">
+      
+      
+        <link rel="prev" href="../aws_ses_setup/">
+      
+      
+        <link rel="next" href="../home_network/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>AWS Todo List - Chad Rodgers - Pages</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#secure-shared-family-todo-pwa-aws-amplify-gen-2-typescript" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Chad Rodgers - Pages" class="md-header__button md-logo" aria-label="Chad Rodgers - Pages" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Chad Rodgers - Pages
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              AWS Todo List
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ChadDRodgers/pages" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../articles/ideas/" class="md-tabs__link">
+          
+  
+  
+  Articles
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../creating_pi_image/" class="md-tabs__link">
+          
+  
+  
+  Tutorials
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  About Me
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Chad Rodgers - Pages" class="md-nav__button md-logo" aria-label="Chad Rodgers - Pages" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Chad Rodgers - Pages
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ChadDRodgers/pages" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Articles
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Articles
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../articles/ideas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    My Ideas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorials
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tutorials
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../creating_pi_image/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Creating Pi Image
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reflash_coachproxy_add_tailscale/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CoachProxy — Reflash & Tailscale
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../shutdown_coachproxy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shutdown CoachProxy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../node-red/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Node-RED
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws_email_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AWS Email Service
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws_ses_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AWS SES Redirect
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AWS Todo List
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AWS Todo List
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#architecture-overview-frontend-platform-react-vite-typescript" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🏗️ Architecture Overview- Frontend Platform: React (Vite) + TypeScript.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-1-local-environment-initialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🛠️ Phase 1: Local Environment Initialization###
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-2-configuration-database-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🗄️ Phase 2: Configuration &amp; Database Design
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-3-writing-the-frontend-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💻 Phase 3: Writing the Frontend Code
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-4-cicd-live-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚀 Phase 4: CI/CD Live Deployment
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-5-locking-down-server-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔒 Phase 5: Locking Down Server Security
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-6-custom-domain-configurations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🌐 Phase 6: Custom Domain Configurations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-7-app-stream-alerts-engine-aws-lambda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔔 Phase 7: App Stream Alerts Engine (AWS Lambda)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-8-deploying-to-iphones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📱 Phase 8: Deploying to iPhones
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../home_network/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home Network Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About Me
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#architecture-overview-frontend-platform-react-vite-typescript" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🏗️ Architecture Overview- Frontend Platform: React (Vite) + TypeScript.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-1-local-environment-initialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🛠️ Phase 1: Local Environment Initialization###
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-2-configuration-database-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🗄️ Phase 2: Configuration &amp; Database Design
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-3-writing-the-frontend-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💻 Phase 3: Writing the Frontend Code
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-4-cicd-live-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚀 Phase 4: CI/CD Live Deployment
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-5-locking-down-server-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔒 Phase 5: Locking Down Server Security
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-6-custom-domain-configurations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🌐 Phase 6: Custom Domain Configurations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-7-app-stream-alerts-engine-aws-lambda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔔 Phase 7: App Stream Alerts Engine (AWS Lambda)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-8-deploying-to-iphones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📱 Phase 8: Deploying to iPhones
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<p>AI Generated</p>
+<p>Here is a complete, production-ready README.md file that you can copy, paste, and publish directly to your personal GitHub repository. It synthesizes all the steps we discussed into a single, comprehensive guide for your family and future reference.</p>
+<hr />
+<h1 id="secure-shared-family-todo-pwa-aws-amplify-gen-2-typescript">👨‍👩‍👧‍👦 Secure Shared Family Todo PWA (AWS Amplify Gen 2 &amp; TypeScript)</h1>
+<p>A secure, real-time, cross-platform collaborative Todo application designed specifically for families. This application runs on AWS Serverless infrastructure (qualifying for the AWS Free Tier), supports individual chore assignment, offers complete workspace cleanups, works on desktop browsers, and installs natively onto iPhones as a Progressive Web App (PWA) with live <strong>Web Push Notifications</strong> (iOS 16.4+).</p>
+<h2 id="architecture-overview-frontend-platform-react-vite-typescript">🏗️ Architecture Overview- <strong>Frontend Platform</strong>: React (Vite) + TypeScript.</h2>
+<ul>
+<li><strong>Hosting &amp; Infrastructure</strong>: AWS Amplify Gen 2 (Automated CI/CD linked via GitHub).</li>
+<li><strong>Authentication</strong>: Amazon Cognito (Enforces isolated login pools and multi-factor authentication).</li>
+<li><strong>Database &amp; Live Sync</strong>: Amazon DynamoDB + AWS AppSync GraphQL (Provides instant real-time data pushes across family devices).</li>
+<li><strong>Push Engine</strong>: Background Web Service Workers + AWS Lambda Functions communicating via the standard Web Push protocol (VAPID).</li>
+</ul>
+<h2 id="phase-1-local-environment-initialization">🛠️ Phase 1: Local Environment Initialization###</h2>
+<ol>
+<li>
+<p>Install PrerequisitesEnsure you have the following free tools configured on your local workstation:</p>
+</li>
+<li>
+<p><strong>Node.js (LTS)</strong>: Download from <a href="https://nodejs.org">nodejs.org</a>.</p>
+</li>
+<li><strong>AWS Account</strong>: Register an administrative profile on the <a href="https://amazon.com">AWS Management Console</a>.</li>
+<li>
+<p><strong>AWS CLI</strong>: Setup locally following the <a href="https://amazon.com">AWS CLI Installation Guide</a>.</p>
+</li>
+<li>
+<p>Scaffold the Project SpaceOpen your terminal and execute the following sequences to create a lightweight React project powered by Vite:</p>
+</li>
+</ol>
+<pre><code class="language-bash">npm create vite@latest family-todo -- --template react-ts
+cd family-todo
+npm install
+</code></pre>
+<ol>
+<li>Initialize AWS Amplify Gen 2Initialize the modern code-first AWS Amplify environment:</li>
+</ol>
+<pre><code class="language-bash">npm create amplify@latest -y
+</code></pre>
+<p><em>This configures an <code>amplify</code> structural folder inside your root working directory.</em></p>
+<h2 id="phase-2-configuration-database-design">🗄️ Phase 2: Configuration &amp; Database Design</h2>
+<ol>
+<li>Declare the Shared Schema &amp; Device TablesOpen your <code>amplify/data/resource.ts</code> file. Replace its complete contents with the code below. This setup allows any authenticated family member to see, update, or clear any items, and introduces a schema table to log device subscription details for push tracking.</li>
+</ol>
+<pre><code class="language-typescript">import { type ClientSchema, a, defineData } from '@aws-amplify/backend';
+
+const schema = a.schema({
+  Todo: a
+    .model({
+      content: a.string().required(),
+      isDone: a.boolean().default(false),
+      createdBy: a.string().required(),
+      assignedTo: a.string().required(),
+    })
+    .authorization((allow) =&gt; [allow.authenticated()]),
+
+  DeviceSubscription: a
+    .model({
+      username: a.string().required(),
+      subscriptionJson: a.string().required(),
+    })
+    .authorization((allow) =&gt; [allow.authenticated()]),
+});
+
+export type Schema = ClientSchema&lt;typeof schema&gt;;
+export const data = defineData({ schema });
+</code></pre>
+<ol>
+<li>Generate Cryptographic VAPID KeysTo authenticate your notification stream safely, run this utility command inside your terminal:</li>
+</ol>
+<pre><code class="language-bash">npx web-push generate-vapid-keys
+</code></pre>
+<p><em>Save both generated string blocks safely. You will insert the </em><em>Public Key</em><em> into the React client code, and the </em><em>Private Key</em><em> securely into your AWS Lambda background handler.</em></p>
+<h2 id="phase-3-writing-the-frontend-code">💻 Phase 3: Writing the Frontend Code</h2>
+<p>Install the official AWS interface and functional wrapper libraries first:```bash
+npm install @aws-amplify/ui-react aws-amplify</p>
+<ol>
+<li>Create the Service Worker HandlerCreate a file named <strong><code>sw.js</code></strong> inside your <strong><code>public/</code></strong> directory. This background listener processes background signals and launches the native iOS banner message components.</li>
+</ol>
+<pre><code class="language-javascript">// public/sw.js
+self.addEventListener('push', (event) =&gt; {
+  const data = event.data ? event.data.json() : { title: 'Family Todo Update', body: 'Someone updated the task list!' };
+
+  const options = {
+    body: data.body,
+    icon: '/apple-touch-icon.png',
+    badge: '/apple-touch-icon.png',
+    vibrate: [100, 50, 100],
+    data: { url: self.location.origin }
+  };
+
+  event.waitUntil(self.registration.showNotification(data.title, options));
+});
+
+self.addEventListener('notificationclick', (event) =&gt; {
+  event.notification.close();
+  event.waitUntil(
+    clients.matchAll({ type: 'window' }).then((clientList) =&gt; {
+      for (const client of clientList) {
+        if (client.url === event.notification.data.url &amp;&amp; 'focus' in client) return client.focus();
+      }
+      if (clients.openWindow) return clients.openWindow(event.notification.data.url);
+    })
+  );
+});
+</code></pre>
+<ol>
+<li>Assemble the Application ShellOpen <strong><code>src/App.tsx</code></strong> and replace its code with the complete block below. Customize the <code>FAMILY_MEMBERS</code> array and add your unique public VAPID string.</li>
+</ol>
+<pre><code class="language-tsx">import { useEffect, useState } from 'react';
+import { generateClient } from 'aws-amplify/data';
+import { Authenticator } from '@aws-amplify/ui-react';
+import '@aws-amplify/ui-react/styles.css';
+import { Amplify } from 'aws-amplify';
+import type { Schema } from '../amplify/data/resource';
+import outputs from '../amplify_outputs.json';
+
+Amplify.configure(outputs);
+const client = generateClient&lt;Schema&gt;();
+
+// 💡 UPDATE THIS LIST WITH YOUR FAMILY NAMES
+const FAMILY_MEMBERS = ['Dad', 'Mom', 'Alex', 'Emily', 'Everyone'];
+
+// Push Notification Custom Hook
+function usePushNotifications(currentUserName: string) {
+  // 💡 PASTE YOUR GENERATED PUBLIC VAPID KEY HERE
+  const VAPID_PUBLIC_KEY = 'YOUR_PUBLIC_VAPID_KEY_HERE';
+
+  useEffect(() =&gt; {
+    if (!('serviceWorker' in navigator) || !('PushManager' in window)) return;
+
+    async function registerNotificationDevice() {
+      try {
+        const registration = await navigator.serviceWorker.register('/sw.js');
+        const permission = await Notification.requestPermission();
+        if (permission !== 'granted') return;
+
+        let subscription = await registration.pushManager.getSubscription();
+        if (!subscription) {
+          subscription = await registration.pushManager.subscribe({
+            userVisibleOnly: true,
+            applicationServerKey: VAPID_PUBLIC_KEY
+          });
+        }
+
+        await client.models.DeviceSubscription.create({
+          username: currentUserName,
+          subscriptionJson: JSON.stringify(subscription)
+        });
+      } catch (error) {
+        console.error('Push integration failed:', error);
+      }
+    }
+
+    if (currentUserName &amp;&amp; currentUserName !== 'Family Member') {
+      registerNotificationDevice();
+    }
+  }, [currentUserName]);
+}
+
+export default function App() {
+  return (
+    &lt;Authenticator&gt;
+      {({ signOut, user }) =&gt; {
+        const currentUserName = user?.signInDetails?.loginId || user?.username || 'Family Member';
+        usePushNotifications(currentUserName);
+
+        const [todos, setTodos] = useState&lt;Schema['Todo']['type'][]&gt;([]);
+        const [newTask, setNewTask] = useState('');
+        const [assignee, setAssignee] = useState('Everyone');
+        const [hideCompleted, setHideCompleted] = useState(false);
+        const [viewFilter, setViewFilter] = useState&lt;'all' | 'mine'&gt;('all');
+
+        useEffect(() =&gt; {
+          const sub = client.models.Todo.observeQuery().subscribe({
+            next: (data) =&gt; setTodos([...data.items]),
+          });
+          return () =&gt; sub.unsubscribe();
+        }, []);
+
+        async function handleAddTask(e: React.FormEvent) {
+          e.preventDefault();
+          if (!newTask.trim()) return;
+          await client.models.Todo.create({
+            content: newTask,
+            isDone: false,
+            createdBy: currentUserName,
+            assignedTo: assignee,
+          });
+          setNewTask('');
+          setAssignee('Everyone');
+        }
+
+        async function toggleTodoStatus(todo: Schema['Todo']['type']) {
+          await client.models.Todo.update({ id: todo.id, isDone: !todo.isDone });
+        }
+
+        async function deleteTodo(id: string) {
+          await client.models.Todo.delete({ id });
+        }
+
+        async function clearCompletedTasks() {
+          const completedTasks = todos.filter(t =&gt; t.isDone);
+          for (const todo of completedTasks) {
+            await client.models.Todo.delete({ id: todo.id });
+          }
+        }
+
+        const filteredTodos = todos.filter((todo) =&gt; {
+          if (hideCompleted &amp;&amp; todo.isDone) return false;
+          if (viewFilter === 'mine') return todo.assignedTo === currentUserName || todo.assignedTo === 'Everyone';
+          return true;
+        });
+
+        return (
+          &lt;main style={styles.container}&gt;
+            &lt;header style={styles.header}&gt;
+              &lt;h1&gt;👨‍👩‍👧‍👦 Family Workspace&lt;/h1&gt;
+              &lt;div style={styles.userInfo}&gt;
+                &lt;span&gt;Logged in: &lt;strong&gt;{currentUserName}&lt;/strong&gt;&lt;/span&gt;
+                &lt;button onClick={signOut} style={styles.signOutBtn}&gt;Sign Out&lt;/button&gt;
+              &lt;/div&gt;
+            &lt;/header&gt;
+
+            &lt;form onSubmit={handleAddTask} style={styles.formCard}&gt;
+              &lt;input
+                type=&quot;text&quot;
+                value={newTask}
+                onChange={(e) =&gt; setNewTask(e.target.value)}
+                placeholder=&quot;What needs to be done?...&quot;
+                style={styles.input}
+              /&gt;
+              &lt;div style={styles.formRow}&gt;
+                &lt;label style={styles.label}&gt;
+                  Assignee:
+                  &lt;select value={assignee} onChange={(e) =&gt; setAssignee(e.target.value)} style={styles.select}&gt;
+
+{FAMILY_MEMBERS.map(m =&gt; {m})}
+
+
+Add Task
+
+
+
+&lt;button onClick={() =&gt; setViewFilter('all')} style={{...styles.filterBtn, backgroundColor: viewFilter === 'all' ? '#007bff' : '#eee', color: viewFilter === 'all' ? 'white' : 'black'}}&gt;All
+&lt;button onClick={() =&gt; setViewFilter('mine')} style={{...styles.filterBtn, backgroundColor: viewFilter === 'mine' ? '#007bff' : '#eee', color: viewFilter === 'mine' ? 'white' : 'black'}}&gt;My Tasks
+
+&lt;div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}&gt;
+
+&lt;input type=&quot;checkbox&quot; checked={hideCompleted} onChange={(e) =&gt; setHideCompleted(e.target.checked)} /&gt; Hide Done
+
+{todos.some(t =&gt; t.isDone) &amp;&amp; (
+🧹 Clear
+)}
+
+
+{filteredTodos.map((todo) =&gt; (
+
+&lt;div style={styles.todoContent} onClick={() =&gt; toggleTodoStatus(todo)}&gt;
+&lt;input type=&quot;checkbox&quot; checked={todo.isDone || false} readOnly style={styles.checkbox} /&gt;
+
+&lt;span style={{ textDecoration: todo.isDone ? 'line-through' : 'none', color: todo.isDone ? '#888' : '#000' }}&gt;{todo.content}
+
+👤 {todo.assignedTo}
+By: {todo.createdBy}
+
+
+
+&lt;button onClick={() =&gt; deleteTodo(todo.id)} style={styles.deleteBtn}&gt;🗑️
+
+))}
+
+
+);
+}}
+
+);
+}
+const styles = {
+container: { maxWidth: '500px', margin: '0 auto', padding: '15px', fontFamily: 'system-ui, sans-serif' },
+header: { borderBottom: '2px solid #f0f0f0', paddingBottom: '15px', marginBottom: '20px' },
+userInfo: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '14px', marginTop: '5px' },
+signOutBtn: { background: '#dc3545', color: 'white', border: 'none', padding: '6px 12px', borderRadius: '6px', cursor: 'pointer' },
+formCard: { background: '#f8f9fa', padding: '15px', borderRadius: '8px', border: '1px solid #e9ecef', marginBottom: '20px' },
+input: { width: '100%', padding: '12px', fontSize: '16px', borderRadius: '6px', border: '1px solid #ced4da', boxSizing: 'border-box' as const, marginBottom: '10px' },
+formRow: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '10px' },
+label: { fontSize: '14px', display: 'flex', alignItems: 'center', gap: '8px' },
+select: { padding: '8px', borderRadius: '6px', border: '1px solid #ced4da', background: 'white' },
+addBtn: { background: '#28a745', color: 'white', border: 'none', padding: '10px 20px', borderRadius: '6px', cursor: 'pointer', fontWeight: 'bold' },
+filterBar: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' },
+buttonGroup: { display: 'flex', gap: '5px' },
+filterBtn: { border: 'none', padding: '6px 12px', borderRadius: '20px', cursor: 'pointer', fontSize: '13px' },
+checkboxLabel: { fontSize: '13px', display: 'flex', alignItems: 'center', gap: '5px' },
+clearBtn: { background: '#6c757d', color: 'white', border: 'none', padding: '6px 10px', borderRadius: '20px', cursor: 'pointer', fontSize: '12px' },
+list: { listStyle: 'none', padding: 0 },
+listItem: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '12px', border: '1px solid #e9ecef', background: 'white', borderRadius: '8px', marginBottom: '10px' },
+todoContent: { display: 'flex', alignItems: 'flex-start', gap: '12px', flex: 1, cursor: 'pointer' },
+checkbox: { width: '20px', height: '20px', cursor: 'pointer' },
+textWrapper: { display: 'flex', flexDirection: 'column' as const, gap: '4px' },
+meta: { display: 'flex', alignItems: 'center', gap: '10px' },
+badge: { fontSize: '11px', background: '#e1ecf4', color: '#39739d', padding: '2px 6px', borderRadius: '4px' },
+createdBy: { fontSize: '11px', color: '#6c757d' },
+deleteBtn: { background: 'none', border: 'none', cursor: 'pointer' }
+};
+</code></pre>
+<ol>
+<li>Add Custom Homescreen Metadata Icons</li>
+</ol>
+<p>Place a square .png graphic file sized to exactly 180x180 pixels into your public/ directory folder and name it apple-touch-icon.png. Then open your root index.html file and declare the icon inside the <head> tags:</p>
+<pre><code class="language-html">&lt;!-- Place this inside the &lt;head&gt; tags of your root index.html file --&gt;
+
+&lt;!-- 📱 Custom app launcher icon for iPhone Home Screens --&gt;
+&lt;link rel=&quot;apple-touch-icon&quot; href=&quot;/apple-touch-icon.png&quot;&gt;
+
+&lt;!-- 💻 Custom tab favicon for desktop web browsers --&gt;
+&lt;link rel=&quot;icon&quot; type=&quot;image/png&quot; href=&quot;/apple-touch-icon.png&quot;&gt;
+</code></pre>
+<hr />
+<h2 id="phase-4-cicd-live-deployment">🚀 Phase 4: CI/CD Live Deployment</h2>
+<ol>
+<li>Initialize git locally, link your new private GitHub repository, and push the source codebase:</li>
+</ol>
+<pre><code class="language-bash">git init git add . git commit -m &quot;Initialize secure family sync app&quot; 
+git branch -M main git remote add origin YOUR_GITHUB_REPO_URL 
+git push -u origin main
+</code></pre>
+<ol>
+<li>Navigate to the online AWS Amplify Console Workspace.</li>
+<li>Choose Create New App, pick GitHub as the source repository tracking mechanism, and authorize connection permissions.</li>
+<li>Select your application repository and the main branch, then click deploy. AWS will provision and deploy your database systems, Cognito user portals, and app code automatically.</li>
+</ol>
+<hr />
+<h2 id="phase-5-locking-down-server-security">🔒 Phase 5: Locking Down Server Security</h2>
+<p>To prevent random internet users from registering to your application workspace, implement these manual cloud dashboard steps:</p>
+<ol>
+<li>Open the Amazon Cognito Console via your AWS account.</li>
+<li>Choose the unique User Pool instance provisioned by Amplify.</li>
+<li>Access Sign-in experience configuration settings and change Self-registration to Disabled.</li>
+<li>Click Create User manually to explicitly generate distinct accounts for your individual family members.</li>
+<li>Inside Security options, configure Multi-factor Authentication (MFA) to Required and pick authenticator applications as the secure identification method.</li>
+</ol>
+<hr />
+<h2 id="phase-6-custom-domain-configurations">🌐 Phase 6: Custom Domain Configurations</h2>
+<p>To lock in an easy-to-remember domain like ourfamilytasks.com instead of relying on long generated hashes:</p>
+<ol>
+<li>Inside your AWS Amplify Console workspace configuration space, click Domain management from the sidebar menu layout.</li>
+<li>Select Add domain, enter your root name domain structure (e.g., ourfamilytasks.com), and click configure.</li>
+<li>Point your top-level domain records and any selected www configurations down toward the primary main production branch environment.</li>
+<li>Save adjustments. Amplify will handle generating a free SSL/TLS encryption certificate automatically.</li>
+</ol>
+<hr />
+<h2 id="phase-7-app-stream-alerts-engine-aws-lambda">🔔 Phase 7: App Stream Alerts Engine (AWS Lambda)</h2>
+<p>To route outbound mobile notifications seamlessly whenever someone assigns a task, configure an automatic event pipeline:</p>
+<ol>
+<li>Open the AWS Lambda Console and click Create Function named SendFamilyPushNotification using Node.js runtime.</li>
+<li>Inside your DynamoDB panel console, find your database table matching Todo and verify that DynamoDB Streams tracking is active (set to capture New Image properties).</li>
+<li>Tie that DynamoDB Stream resource directly to your Lambda instance as its primary execution trigger.</li>
+<li>Paste this code block inside the Lambda editor script to fire notification events down to active target browser clients using the internal web-push library:</li>
+</ol>
+<pre><code class="language-javascript">
+const webPush = require('web-push');
+const { DynamoDBClient } = require(&quot;@aws-sdk/client-dynamodb&quot;);
+const { DynamoDBDocumentClient, scan } = require(&quot;@aws-sdk/lib-dynamodb&quot;);
+
+// 💡 Insert your VAPID keys here
+const VAPID_PUBLIC_KEY = 'YOUR_PUBLIC_VAPID_KEY_HERE';
+const VAPID_PRIVATE_KEY = 'YOUR_PRIVATE_VAPID_KEY_HERE';
+webPush.setVapidDetails('mailto:family@example.com', VAPID_PUBLIC_KEY, VAPID_PRIVATE_KEY);
+const ddbClient = new DynamoDBClient({});
+const docClient = DynamoDBDocumentClient.from(ddbClient);
+
+exports.handler = async (event) =&gt; {
+// Scan for all logged active mobile client subscriptions inside the table
+const scanParams = { TableName: process.env.SUBSCRIPTION_TABLE_NAME };
+const subscriptionsData = await docClient.send(new scan(scanParams));
+for (const record of event.Records) {
+if (record.eventName === 'INSERT') {
+const newTask = record.dynamodb.NewImage;
+const content = newTask.content.S;
+const assignee = newTask.assignedTo.S;
+const payload = JSON.stringify({
+title: '📌 New Family Task!',
+body: ${assignee}: ${content}
+});
+
+for (const subItem of subscriptionsData.Items) {
+const subDetail = JSON.parse(subItem.subscriptionJson);
+
+try {
+await webPush.sendNotification(subDetail, payload);
+} catch (err) {
+console.error(&quot;Expired device signature encountered:&quot;, err);
+}
+}
+}
+}
+};
+</code></pre>
+<hr />
+<h2 id="phase-8-deploying-to-iphones">📱 Phase 8: Deploying to iPhones</h2>
+<p>Web Push functionality requires your app to run as an independent homescreen wrapper application:</p>
+<ol>
+<li>Launch Safari on your target iOS iPhone device.</li>
+<li>Browse out to your custom encrypted application landing URL (https://ourfamilytasks.com).</li>
+<li>Tap the central Share square icon tray option located along the layout footer.</li>
+<li>Scroll down and choose Add to Home Screen.</li>
+<li>Launch the application from your iPhone home screen. Sign in, and grant permissions when the system prompts you to Allow Notifications.</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/extra.js"></script>
+      
+    
+  </body>
+</html>
